@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.MemberDAO-mapper">
+
+<!-- 회원    등록 -->
+<insert id="joinMember" parameterType="com.kh.portfolio.member.vo.MemberVO">
+		INSERT INTO member( id, pw, tel, name, gender, region, birth, cdate, fdata, fname, fsize)
+		VALUES(#{id},#{pw},#{tel},#{name},#{gender},#{region},#{birth},systimestamp, #{fdata,jdbcType=BLOB},#{fname,jdbcType=VARCHAR},#{fsize,jdbcType=VARCHAR})
+</insert>
+
+<!-- 회원 수정 -->
+<update id="modifyMember" parameterType="MemberVO"> <!-- {}안에 값은 vo에 있는 멤버이름과 맞추는것 -->
+	update member
+	set tel = #{tel}, 
+		  name = #{name}, 
+		  gender= #{gender}, 
+		  region = #{region}, 
+		  birth = #{birth}, 
+		  udate = systimestamp, 
+		  fdata = #{fdata,jdbcType=BLOB}, 
+		  fname = #{fname,jdbcType=VARCHAR}, 
+		  fsize = #{fsize,jdbcType=VARCHAR}
+	where id = #{id}
+
+</update>
+<!-- 회원 전체 조회 -->
+<select id = "selectAllMember"
+resultType="MemberVO">
+		select id, pw, tel, name, gender, region, birth, cdate, udate 
+		from member 
+</select>
+<!-- 회원 개별 조회-->
+<select id ="selectMember" parameterType="String"
+resultType="MemberVO"> <!-- 파라미터타입 생략가능 -->
+		select id, pw, tel, name, gender, region, birth, cdate, udate, fdata, fname, fsize
+		from member 
+		where id = #{id} 
+</select>
+<!-- 회원 탈퇴 -->
+<delete id = "outMember" parameterType="map">
+	delete from member where id = #{id} and pw = #{pw} <!-- {}안에는 map이가지고 있는 key값을 넣어준다 -->
+</delete>
+
+<!-- 회원 로그인 -->
+<select id ="loginMember" parameterType="MemberVO"
+resultType = "MemberVO">
+	select id, pw, tel, name, gender, region, birth, cdate, udate 
+		 from member 
+		 where id = #{id} 
+		 and pw = #{pw} 
+</select>
+<!-- 회원 아이디 찾기 -->
+<select id ="findID" parameterType="MemberVO" resultType="String">
+	select id from member where tel= #{tel} and birth= #{birth} 
+</select>
+
+<!-- 회원 비밀번호 찾기 -->
+<select id = "findPW" parameterType="MemberVO" resultType ="int">
+	select count(id) from member 
+	where id= #{id} and tel = #{tel} and birth = #{birth}
+</select>
+
+
+
+<!-- 회원 비밀번호 변경 -->
+	<update id ="changePW" parameterType="MemberVO">
+		update member
+		set pw = #{pw}  
+		where id = #{id}
+	</update>
+
+
+<!-- 사진 삭제 -->
+<delete id = "fileDelete" parameterType="String"> 
+	update member 
+	set fdata = null,
+	    fsize = null,
+	    fname = null
+	where id = #{id}
+</delete>
+</mapper>

@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/* 공통 */
+    .lm-1{ margin-left: 10px; } 
+    .lm-2{ margin-left: 20px; } 
+    .lm-3{ margin-left: 30px; } 
+    .lm-4{ margin-left: 40px; } 
+    .lm-5{ margin-left: 50px; }
+    .lm-6{ margin-left: 60px; } 
+    .lm-7{ margin-left: 70px; } 
+    .lm-8{ margin-left: 80px; } 
+    .lm-9{ margin-left: 90px; } 
+    .lm-10{ margin-left: 100px; }
+    .rm-1{ margin-right: 10px; } .rm-2{ margin-right: 20px; } .rm-3{ margin-right: 30px; } .rm-4{ margin-right: 40px; } .rm-5{ margin-right: 50px; }
+    .rm-6{ margin-right: 60px; } .rm-7{ margin-right: 70px; } .rm-8{ margin-right: 80px; } .rm-9{ margin-right: 90px; } .rm-10{ margin-right: 100px; }
+  
+    .fw-1{min-width:10px;} .fw-2{min-width:20px;} .fw-3{min-width:30px;} .fw-4{min-width:40px;} .fw-5{min-width:50px;}
+    .fw-6{min-width:60px;} .fw-7{min-width:70px; margin-top:10px; border-bottom:1px solid #ccc;} .fw-8{min-width:80px;} .fw-9{min-width:90px;} .fw-10{min-width:100px;}
+    .fw-15{min-width:150px; }
+    #pw-10top{border-bottom:1px solid #ccc;}
+    .pw-1{width:10%;} .pw-2{width:20%;} .pw-3{width:30%;} .pw-4{width:40%;} .pw-5{width:50%;}
+    .pw-6{width:60%;} .pw-7{width:70%;} .pw-8{width:80%;} .pw-9{width:90%;} .pw-10{width:100%; margin-top:10px;  }
+
+		#replyArea { width:900px; margin:0 auto; padding:10px;}
+		#rowid{
+			position:relative; bottom:20px;
+		}
+    #reply .row, 
+    #replyList .row { display:flex; }
+		#bottom{
+			margin-top:5px;
+			position:relative;
+			float:right;
+			border-right:1px solid #ccc;
+			border-left:1px solid #ccc;
+			border-top:1px solid #ccc;
+		}
+		#fwname{
+			min-width:200px;
+		}
+		#fwgood{
+			padding-left:10px;
+			border-right:1px solid #ccc;
+		}
+		#fwbad{
+			padding-left:10px;
+		}
+    /* 댓글작성 */
+    #reply{
+      margin-top:40px; 
+      width:100%;
+    }
+
+    #reply .row{ display:flex; }    
+    #reply #rcontent{ width:100%; height:100px; margin-top:15px;}
+    #reply #replyBtn2{ 
+    		width:130px;
+    		background-color:black;
+    		opacity:0.8px;
+    		color:white;
+    }
+    
+    /* 대댓글 작성*/
+    #replyList .row.rreply{display:flex; margin-top:5px;}
+    #replyList .row.rreply .rrcontent{width:100%; height:80px; border:1px solid #ccc; margin-top:20px;}
+    #replyList .row.rreply .rreplyBtn{width:110px; background-color:black; margin-top:20px;
+    		opacity:0.8px;
+    		color:white;}
+    /* 대댓글 수정*/
+    #replyList .row.rreplyModify{display:flex;}
+    #replyList .row.rreplyModify .rrcontent{width:100%; border:1px solid #ccc;}
+    #replyList .row.rreplyModify .rreplyModifyBtn{width:80px;}
+      
+    /* 댓글 목록 */  
+    #replyList{
+      margin-top:20px; width:100%;
+    }
+    #replyList .row { display:flex; }    
+    #replyList .row.header .col:nth-child(4){
+      display:flex;
+      justify-content: flex-end;
+    }
+    #replyList .row.header div {
+    	padding: 1px 3px;
+    }
+    /* 페이징 */
+  /*   #paging {
+      margin-top:20px;
+      display:flex;
+      justify-content: center;
+    }
+    #paging a {
+    	padding:2px;
+    	margin:2px;
+    }
+    #paging .active{
+    	background-color: yellow;
+    } */
+     #paging {
+      margin-top:20px;
+      display:flex;
+      justify-content: center;
+    }
+    
+     #paging a {
+    		font-size:14px;
+        display: inline-block;      
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 8px;
+        color: #000;
+ 
+    }
+    /* 현재 페이징에 select 클래스를 적용한다*/
+    #paging a.select {
+        color: #fff;
+       /*  background-color: #BDBDBD; */
+    }
+    
+    #paging a:hover {
+        color: red; 	
+    }
+    
+    /* fontawesome 아이콘  색지정 */
+    .fa-reply{color:Tomato}
+    .fa-edit{color:green}
+    .fa-trash-alt{color:salmon}
+    .fa-thumbs-up{color:rgb(59, 91, 152)}
+    .fa-thumbs-down{color:rgb(59, 91, 152)}
+    
+   #replyBtn2{height:103px; position:relative; top:13px;}
+     @media screen and (min-width:320px) and (max-width:767px) {
+     	#replyArea { width:400px; margin:0 auto; padding:10px;}
+  		#replyBtn2 {height:103px; position:relative; top:15px;}
+  		.pw-10 { width:340px;}
+  		#pw-10top{border:none;}
+  		.fw-7{border:none;}
+  		#riddiv{visibility:hidden; width:0px;}
+  		#fwname{ min-width:30px; width:50px;}
+  		#img {width:40px; height:40px;}
+  		.fw-7{min-width:40px;}
+		#pw-10div{width:55px; position:relative; bottom:10px;}
+     	#bottom{position:relative; right:30px; border-bottom:1px solid #ccc;
+     	}#rowid{
+     		position:relative; bottom:0px;
+     	}
+     }
+     
+     @media screen and (min-width:768px) and (max-width:1099px) {
+     	#replyArea { width:720px; margin:0 auto; padding:10px; }
+     }

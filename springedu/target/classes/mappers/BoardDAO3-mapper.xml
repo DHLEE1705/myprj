@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 용병신청목록 게시판 -->
+<mapper namespace="mappers.BoardDAO3-mapper">
+
+<!-- 카테고리 읽어오기 -->
+
+
+<select resultType="BoardCategoryVO" id="getCategory"> 
+select cid, cname from board_category </select>
+
+<!-- 게시글작성 -->
+
+<insert id="write" parameterType="BoardVO3">
+			INSERT INTO board3(
+			bnum, 
+			region,
+			skill,
+			manner,
+			pdate,
+			bid,
+    	bname,
+    	bcontent,
+   		btel,
+   		fdata,
+   		fname,
+   		fsize
+		 ) 
+			VALUES 
+			( 
+			board3_bnum_seq.nextval, 
+			#{region}, 
+			#{skill}, 
+			#{manner}, 
+			#{pdate},
+			#{bid}, 
+			#{bname},  
+			#{bcontent}, 
+			#{btel},
+			#{fdata,jdbcType=BLOB},
+			#{fname,jdbcType=VARCHAR},
+			#{fsize, jdbcType=VARCHAR}
+		 ) 
+			<selectKey resultType="long" order="AFTER" keyProperty="bnum"> 
+			select board3_bnum_seq.currval from dual </selectKey> <!--  사전에 어떤 키값을 먼저가져와서 사용하고싶을때 -->
+</insert>
+
+<!-- 용병보기 -->
+	<select id ="view" parameterType="long" resultType="BoardVO3">
+		select
+					bnum,
+					region,
+					skill,
+					manner,
+					pdate,
+					bid,
+					btel,
+					fdata,
+					fname,
+					fsize,
+					bname,
+					bcdate,
+					budate,
+					bcontent
+				from
+					board3 t1, board_category t2
+				where t1.bcategory = t2.cid
+				and t1.bnum = #{bnum}
+				
+	</select>
+<!-- 게시글삭제 -->
+ <delete id = "delete" parameterType="long">
+	delete from board3 where bnum = #{bnum} 
+</delete> 
+	<!-- 게시글목록 -->
+<!-- 1)전체 -->
+<select id = "list"
+				resultType = "BoardVO3">
+				select
+					bid,
+					bnum,
+					region,
+					skill,
+					manner,
+					pdate,
+					bname,
+					bcontent,
+					btel,
+					fdata,
+					fname,
+					fsize
+				from
+					board3
+				order by bnum desc
+</select>
+ <!-- <select id = "list"
+				resultType = "BoardVO3">
+				select
+					b.bnum,
+					b.region,
+					b.skill,
+					b.manner,
+					b.pdate,
+					b.bname,
+					b.bcontent,
+					b.btel,
+					u.fid
+				from
+					board3 b, member m , member_upload_file u
+				where b.bid = m.id
+				and  u.id = m.id
+				order by bnum desc
+</select> -->
+<!-- 3)검색어 있는 게시글검색(전체,제목,내용,작성자ID,별칭) -->
+	<select id="list3"
+					parameterType="map"
+					resultType="BoardVO3">
+         select
+         		bid,
+         		bnum,
+         		btel,
+         		fdata,
+         		fname,
+         		fsize,
+				region,
+				skill,
+				manner,
+				pdate,
+				bname,
+				bcontent
+           from (select row_number() over(order by bnum desc) as num, 
+           					 t1.bid,
+                     t1.bnum,
+                     t1.btel,
+                     t1.fdata,
+                     t1.fname,
+                     t1.fsize,
+                     t1.region,
+                     t1.skill,
+                     t1.manner,
+                     t1.pdate,
+                     t1.bname,
+                     t1.bcontent
+                from board3 t1, board_category t2
+               where t1.bcategory = t2.cid
+     <if test="searchType != null and list != null"> 
+   		and
+	 		<foreach item="item" collection="list"
+	 			open="(" separator="or" close=")">   		
+<!--  			<bind name="item" value="'%'+item+'%'"/> -->
+      <choose>
+      	<!-- 제목+내용 -->
+      	<when test="searchType == 'TC'.toString()">
+      		pdate	 like '%'||#{item}||'%'
+      	</when>
+      	<!-- 제목 -->
+      	<when test="searchType == 'T'.toString()">
+      		region	 like '%'||#{item}||'%'             	
+      	</when>
+      	<!-- 내용 -->
+      	<when test="searchType == 'C'.toString()">
+      		skill like '%'||#{item}||'%'             	
+      	</when>
+      	               	
+      	<!-- 전체 -->              	
+       <otherwise>
+      	  pdate 	 	like '%'||#{item}||'%' 
+          or region 	like '%'||#{item}||'%'                    
+          or skill 	like '%'||#{item}||'%' 
+       </otherwise>
+      </choose>
+      </foreach>  
+     </if>  
+              )                            
+  	 order by bnum desc
+	</select>
+	
+</mapper>

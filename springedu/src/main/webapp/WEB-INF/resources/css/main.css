@@ -1,0 +1,2227 @@
+
+* {
+    
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    overflow-x:hidden; overflow-y:auto;
+}
+
+#headerwrap{
+		background-color:#FAFAFA;
+    border-bottom:1px solid black;
+}
+
+header {
+    margin: 0 auto;
+    width: 1100px;
+    height: 95px;
+}
+
+#headernav {
+    margin: 0 auto;
+    height: 40px;
+    width: 1100px;
+}
+#navwrap{
+	 background-color:#FAFAFA; 
+	 /* opacity:0.8;  */
+}
+#topMenu{
+    margin: 0 auto;
+}
+#topMenu > ul {
+    background-color: #FAFAFA;
+    position: relative;
+    bottom:23px;
+    left:110px;
+    height:30px;
+    display:inline-block;
+    text-align: center;    
+    
+  }
+  #topMenu > ul > li {
+    list-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Dotum, Arial;
+    width:230px;
+    height:38px;
+    display:inline-block;
+  }
+  #topMenu > ul > li > a {
+    display:block;
+    color: black;
+    padding:10px 40px;  /* y축 x축 */
+    font-weight: 700;   /* 폰트 굵기 */
+  }
+
+  #topMenu > ul > li:hover > a,
+  #topMenu > ul > li:active > a {
+    color: white;
+    background-color: #EB3B04;
+    opacity:0.8;
+  }
+
+  #topMenu > ul ul{
+    display:none;
+    position: absolute;
+    z-index:1;
+    padding:0px;
+}
+
+#topMenu > ul ul li{
+    background-color:#EB3B04;
+    opacity:0.8;
+    padding:0px;
+    width:230px;
+}
+
+#topMenu  ul ul  a{
+    font-weight: bold;
+    font-family: "Trebuchet MS", Dotum, Arial;
+    color:white;
+    font-size:13px;
+}
+
+#topMenu ul ul a:hover{
+	color:black;
+}
+
+#topMenu > ul > li:hover > ul{
+    display:block;
+}
+
+
+#header2 {
+    margin: 0 auto;
+    width: 1100px;
+    height: 280px;
+}
+
+#header2wrap{
+    border:1px solid black;
+    background-image:url('img/헤더2이미지수정.png');
+    background-size:100%; 
+}
+
+#imgheader1p{
+    float:left;
+    width:270px;
+    height:230px;
+}
+
+#headerpwrap{
+    text-align: center;
+    float:left;
+    height:230px;
+    width:480px;
+}
+.header1p {
+	/* 	background-color:red; */
+    margin-top:30px;
+    width:100%;
+    height:100%;
+    opacity:0.8;
+}
+
+.header2p {
+    margin-top : 40px;
+    font-weight: 900;
+    font-size: 25px;
+    color:white;
+}
+
+.header3p {
+    margin-top:10px;
+    display:inline-block;
+    color: white;
+    font-size: 20px;
+}
+
+.header3p b {
+    color: orangered;
+    text-shadow: 0px -2px white;
+}
+
+.header4p {
+    float: left;
+    width:450px;
+    margin-top:10px;
+    font-size: 13px;    
+    font-weight:900;
+    color:white;
+}
+
+div #headerlogin {
+    float: right;
+    margin-top:110px;
+    height: 170px;
+    width: 350px;
+    background-color: #6E6E6E;
+    opacity: 0.8;
+}
+
+#member_id {
+    margin-top: 50px;
+    height: 30px;
+    color: black;
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+#member_password {
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 40px;
+    color: black;
+    font-size: 15px;
+}
+
+.loginclass {
+    font-size: 20px;
+    width: 80px;
+    height: 75px;
+    color: white;
+    background-color: #FA5858;
+    margin-left: 245px;
+    position: relative;
+    bottom: 74px;
+}
+
+#boxing {
+    position: relative;
+    margin-left: 40px;
+    font-size: 13px;
+    font-weight: bold;
+    bottom: 55px;
+}
+
+#boxing1-1 {
+    float: left;
+    padding-right: 10px;
+    height: 17px;
+    border-right: 1px solid black;
+}
+
+#boxing1-2 {
+    margin-left: 15px;
+    margin-right: 15px;
+    float: left;
+    padding-right: 10px;
+    height: 17px;
+    border-right: 1px solid black;
+}
+
+
+
+#logo {
+    font-size: 22px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-bottom: 0px;
+    border-left: 8px solid black;
+    border-right: 8px solid black;
+    border-top: 10px solid black;
+    color: black;
+    width: 170px;
+    padding: 0px 0px 0px 10px;
+    position: relative;
+    bottom: 30px;
+    left: 110px;
+}
+
+#logo:active {
+    transform: translateY(3px);
+}
+
+#login {
+    margin-right: 20px;
+    border-radius: 10px;
+    display: inline;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#login a:hover {
+    color: #FA5858;
+}
+
+#join a:hover {
+    color: #FA5858;
+}
+
+#customer a:hover {
+    color: #FA5858;
+}
+
+#join {
+    border-radius: 10px;
+    display: inline;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#customer {
+    border-radius: 10px;
+    margin-left: 18px;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    display: inline;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#right {
+    float: right;
+    position: relative;
+    right: 20px;
+    bottom: 65px;
+}
+
+#right:active {
+    transform: translateY(3px);
+}
+
+
+a {
+    color: black;
+}
+
+.logo2 a {
+    margin-left: 420px;
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-bottom: 0px;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+    border-top: 11px solid black;
+    color: black;
+    width: 150px;
+    padding: 0px 10px 0px 10px;
+}
+
+#player {
+    display: inline-block;
+    position: relative;
+    left: 45px;
+    top: 25px;
+}
+
+#player img {
+    width: 45px;
+}
+
+#player:active {
+    transform: translateY(3px);
+}
+
+nav {
+    width: 1100px;
+    margin: 0 auto;
+    height: 2350px;
+}
+
+
+
+#middlemenu1 {
+	
+    background-color: #F8F8F8;
+    float: left;
+    width: 726px;
+    height: 633px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu2 {
+    width: 350px;
+    float: left;
+    margin-left: 20px;
+    height: 633px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu3 {
+		background-color:white;
+    float:left;
+    margin-top:30px;
+    width: 538px;
+    height: 324px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu4{
+	white-space: nowrap;
+	overflow:hidden;
+	background-color:white;
+    float:left;
+    margin-top:30px;
+    margin-left: 20px;
+    width: 538px;
+    height: 324px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu5{
+    float:left;
+    margin-top:30px;
+    width: 1100px;
+    height: 500px;
+    background-image: url('img/변경2.png');
+    background-size:100%;
+    border: 1px solid #ccc;
+}
+
+#middlemenu6{
+	background-color:white;
+    float:left;
+    margin-top:30px;
+    width:1100px;
+    height:350px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu7{
+	white-space: nowrap;
+	overflow:hidden;
+	background-color:white;
+    float: left;
+    margin-top:30px;
+    width: 538px;
+    height: 324px;
+    border: 1px solid #ccc;
+}
+
+#middlemenu8{
+	background-color:white;
+		white-space: nowrap;
+		overflow:hidden;
+		/* text-overflow:ellipsis; */
+    float:left;
+    margin-top:30px;
+    margin-left:20px;
+    width: 538px;
+    height: 324px;
+    border: 1px solid #ccc;
+}
+
+#menu3box{
+    width:500px;
+    height:338px;
+}
+#banner {
+    width: 350px;
+    height: 573px;
+    background-image: url('img/세로배너1.png');
+    background-size: 100%;
+}
+
+#banner2{
+    width:1100px;
+    height:340px;
+    background-image: url('img/대회배너1.png');
+    background-size: 100%;
+}
+
+#search {
+    float: left;
+    margin-left: 370px;
+    position: relative;
+    bottom: 60px;
+
+}
+
+
+#search input[type=image] {
+    position: relative;
+    right: 35px;
+    bottom:2px;
+    width: 25px;
+    vertical-align: middle;
+}
+
+#search input[type=image]:active {
+    transform: translateY(3px);
+}
+#searchType{
+	display:none;
+	position:relative;
+	left:3px;
+	bottom:1px;
+	height:30px;
+	width:50px;
+	border-right:none;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+#search input[type=search] {
+		border-radius:15px;
+    width: 300px;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 15px;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]+label {
+    display: inline-block;
+    height: 20px;
+    padding: 20px;
+    position: relative;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+input[type=radio]:checked+label {
+    color: #FA5858;
+    
+}
+
+.conbox {
+	overflow:hidden;
+    width: 710px;
+    height: 565px;
+    /* border-radius: 15px; */
+    display: none;
+}
+#commentBtn{
+	position:relative;
+	left:170px;
+	bottom:15px;
+	border:none;
+	background-color:transparent;
+	color:#4000FF;
+	margin-left:10px;
+	font-size:20px;
+}
+
+#commentBtn:hover{
+	color:red;
+	}
+
+input[id="tab01"]:checked~.con1 {
+    display: block;
+}
+
+input[id="tab02"]:checked~.con2 {
+    display: block;
+}
+
+input[id="tab03"]:checked~.con3 {
+    display: block;
+}
+
+input[id="tab04"]:checked~.con4 {
+    display: block;
+}
+
+footer {
+    margin: 0 auto;
+    width: 1100px;
+    padding-top: 50px;
+    opacity: 0.8;
+}
+
+footer ul {
+    padding-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer li {
+    display: inline-block;
+    padding: 0px 30px;
+
+}
+
+footer p {
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: lightslategray;
+    line-height: 22px;
+}
+
+input[id="menuicon"] {
+    display: none;
+}
+
+input[id="menuicon"]+label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left:16px;
+    bottom:317px;
+    cursor: pointer;
+}
+
+input[id="menuicon"]+label span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 30px;
+    background: black;
+    z-index: 1;
+    transition: all .35s;
+}
+
+input[id="menuicon"]+label span:nth-child(1) {                                  /*햄버거 버튼 코드 */
+    top: 0;
+}
+
+input[id="menuicon"]+label span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input[id="menuicon"]+label span:nth-child(3) {
+    bottom: 0;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="menuicon"]:checked+label span:nth-child(2) {
+    opacity: 0;
+
+}
+
+input[id="menuicon"]:checked+label span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+div[class="sidebar"] {
+    z-index: 2;
+    opacity: 0.9;
+    width: 300px;
+    height: 700px;
+    background-color: black;
+    position: fixed;
+    top: 133px;
+    left: -300px;
+    transition: all .35s;
+}
+
+.navi {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+ul.navi>li {
+    width: 250px;
+    padding: 10px;
+    position: relative;
+}
+
+ul.navi>li>a {
+    color: darkorange;
+    font-size: 30px;
+    font-weight:bold;
+}
+
+ul.navi ul>li>a {
+    font-size:25px;
+    color: white;
+    margin-left: 10px;
+}
+
+ul.navi ul>li>a:hover{
+	color:red;
+}
+
+input[id="menuicon"]:checked+label+div {
+    left: 0;
+}
+
+.con1 a {
+    position: relative;
+    left: 10px;
+    top: 50px;
+    padding: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 10px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+}
+
+.con1>#con1wrapper1 {
+    width: 724px;
+    margin-left:5px;
+    background-color: white;
+    margin-bottom: 20px;
+    /* border:1px solid #ccc; */
+    height: 120px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.con1>#con1wrapper2 {
+    width: 726px;
+    background-color: white;
+    margin-bottom: 20px;
+    height: 120px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.con1>#con1wrapper3 {
+    width: 726px;
+    background-color: white;
+    margin-bottom: 20px;
+    height: 120px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.con1>#con1wrapper4 {
+    width: 726px;
+    background-color: white;
+    height: 120px;
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#con1-1 {
+    width: 110px;
+    float: left;
+    height: 120px;
+}
+
+#con1-2 {
+    padding-right: 3%;
+    width: 110px;
+    height: 120px;
+    border-right: 1px solid #ccc;
+    float: left;
+}
+
+#con1-3 {
+    width: 80px;
+    border-right: 0.5px solid white;
+    height: 120px;
+    float: left;
+}
+
+#con1-4 {
+    border-right: 0.5px solid white;
+    width: 80px;
+    height: 120px;
+    float: left;
+}
+
+#con1-5 {
+    border-right: 0.5px solid white;
+    padding-right: 3%;
+    width: 130px;
+    height: 120px;
+    float: left;
+}
+
+#con1-6 {
+    border-right: 0.5px solid white;
+    width: 80px;
+    height: 120px;
+    float: left;
+}
+
+#con1-7 {
+    width: 78px;
+    height: 120px;
+    float: left;
+}
+
+.con2>#con2wrapper1 {
+    width: 720px;
+    height: 285px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#con2-1 {
+    float: left;
+    background-image: url('img/fooball-player.png');
+    width: 270px;
+    border-right: 0.5px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 285px;
+
+}
+
+#con2-1 img {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 255px;
+    height:270px;
+}
+
+#con2-2 {
+    float: left;
+    height: 285px;
+    width: 379px;
+}
+
+.playername {
+    color: gray;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.possible {
+    position: relative;
+    left: 80px;
+    bottom: 20px;
+    font-size: 20px;
+}
+
+.skill {
+    position: relative;
+    left: 80px;
+    bottom: 10px;
+    font-size: 20px;
+}
+
+.skill2 {
+    position: relative;
+    left: 80px;
+    font-size: 20px;
+}
+
+.phonenumber {
+    position: relative;
+    left: 80px;
+    top: 10px;
+    font-size: 17px;
+}
+
+
+.month {
+    font-size: 17px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.time {
+    font-size: 10px;
+    color: dimgrey;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+.where {
+
+		width:80px;
+    font-size: 10px;
+    color: dimgrey;
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+
+.match {
+    position: relative;
+    font-size: 15px;
+    color: dimgrey;
+    top: 20px;
+    left: 7px;
+}
+
+.number {
+    position: relative;
+    font-size: 20px;
+    color: forestgreen;
+    top: 25px;
+    left: 10px;
+}
+
+.money {
+    position: relative;
+    font-size: 15px;
+    color: dimgray;
+    top: 20px;
+    left: 10px;
+}
+
+.moneyprice {
+    position: relative;
+    font-size: 17px;
+    color: forestgreen;
+    top: 27px;
+    left: 10px;
+}
+
+.comment {
+    position: relative;
+    font-size: 10px;
+    color: dimgray;
+    top: 20px;
+    left: 10px;
+}
+
+.rank {
+    position: relative;
+    font-size: 15px;
+    color: dimgray;
+    top: 15px;
+    left: 15px;
+}
+
+.rank2 {
+    position: relative;
+    font-size: 20px;
+    color: black;
+    top: 30px;
+    left: 20px;
+}
+
+.manner {
+    position: relative;
+    font-size: 15px;
+    color: dimgray;
+    top: 15px;
+    left: 20px;
+}
+
+.manner2 {
+    position: relative;
+    font-size: 20px;
+    color: black;
+    top: 30px;
+    left: 20px;
+}
+
+form ::placeholder {
+		font-size:13px;
+    padding: 30px;
+    color: gray;
+}
+
+#title {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #F8F8F8;
+    line-height: 60px;
+}
+
+#title p {
+    position: relative;
+    left: 15px;
+}
+
+ .list_wrap{
+    font-size:13px;
+    line-height: 30px;
+    height:32px;    
+    border-bottom: 1px solid #ccc;
+}
+
+.list_wrap a {
+    color:dimgray;
+    padding-left:30px;
+}
+.list_wrap b {
+    font-size:14px;
+    padding-left:10px;
+    color:red;
+    padding-right:10px;
+}
+
+#result_date{
+    font-size:13px;
+    color:#6E6E6E;
+    float:right;
+    position:relative;
+    right:10px; 
+}
+
+#menu3box1{
+    border-bottom:1px solid #ccc;
+    height:185px;
+}
+
+#menu3box2{
+    height:83px;
+}
+
+#menu3con1{
+    border-right:1px solid #ccc;
+    float:left;
+    width:225px;
+    height:185px;
+     
+}
+
+#menu3con2{
+    border-right:1px solid #ccc;
+    float:left;
+    width: 90px;
+    height:185px;
+}
+
+#menu3con3{
+    float:left;
+    width:190px;
+    height:185px;
+}
+
+#menu3con1 img {
+    margin-left:55px;
+    width:110px;
+}
+
+#menu3con3 img{
+    margin-left:55px;
+    width:110px;
+}
+
+#teamname a{
+    margin-bottom:15px;
+    margin-left:65px;
+    color:dimgray;
+    font-size:20px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+
+#winlose a {
+    padding-right:20px;
+    border-radius: 15px;
+    padding-left:20px;
+    margin-left:50px;
+    background-color: #ccc;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+
+#vs a{
+    line-height: 200px;
+    font-size:35px;
+    color:white;
+    padding-right:20px;
+    padding-left:20px;
+    padding-bottom:10px;
+    border-radius: 50%;
+    background-color: black;
+    margin-left:5px;
+}
+
+#menu3box2 p {
+    padding:3px;
+    padding-left:30px;
+    font-size:13px;
+    color: dimgray;
+}
+
+#videowrap{
+    height:289px;
+}
+
+#video1{
+    background-size:100%;
+    float:left;
+    height:210px;
+    margin:10px;
+    border:1px solid #ccc;
+    width:253px;   
+}
+
+#videotitle{
+    height:40px;
+    width:250px;
+    margin-left:12px;
+    margin-right:10px;
+    border:1px solid #ccc;
+    float:left;
+    text-align:center;
+    line-height: 40px;
+}
+
+#videotitle span{
+    font-family: 'Anton', sans-serif;
+    font-family: 'Jua', sans-serif;
+    font-size:14px;
+    color:dimgray;
+}
+
+#visualwrap{
+    margin-bottom:100px;
+}
+
+.visual{
+    width:1020px;
+    margin:0 auto;
+    height:200px;
+}
+
+.visual img {
+    width:100%;
+}
+
+.slick-prev{
+    background-color:white;
+    color:black;
+    font-size:10px;
+    border-radius: 100px;
+    position:relative;
+    right:70px;
+    padding:10px;
+    top:90px;
+}
+
+.slick-next{
+    background-color:white;
+    color:black;
+    font-size:10px;
+    border-radius: 100px;
+    position:relative;
+    padding:10px;
+    left:1030px;
+    bottom:150px;
+}
+
+#footerwrap{
+    background-color: #F8F8F8;
+
+}
+
+#freecontent{
+	float:left;
+	margin-left:30px; 
+	width:400px; 
+	white-space:nowrap;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    
+    header { 
+        width: 320px;
+    }
+
+    #headernav {
+        display: none;
+    }
+
+    #header2wrap{
+        background-image:url('img/헤더2이미지mobile.png');
+        background-size:100%;
+    }
+
+    #header2 {
+        width: 320px;
+        height: 200px;
+    }
+
+    #imgheader1p{
+        display:none;
+        height:200px;
+        width:10px;
+    }
+
+    
+    #headerpwrap{
+        margin-left:60px;
+        width:240px;
+    }
+    .header2p {
+        font-size:15px;
+    }
+
+    .header3p {
+        font-size:13px;
+    }
+    .header4p {  
+        width:240px;  
+        font-size: 11px;
+        color:white;
+    }
+
+    div #headerlogin {
+        display: none;
+    }
+
+    #logo {
+        font-size: 15px;
+        width: 120px;
+        position: relative;
+        bottom: 10px;
+    }
+
+    #login {
+        border-radius: 10px;
+        padding: 3px;
+        font-size: 10px;
+    }
+
+
+    #join {
+        border: none;
+        padding: 3px;
+        font-size: 10px;
+    }
+
+    #customer {
+        padding: 3px;
+        font-size: 10px;
+    }
+
+    #right {
+        margin-right:40px;
+        bottom: 5px;
+    }
+    .logo2 a {
+        margin-left: 100px;
+        font-size: 10px;
+        border-left: 8px solid black;
+        border-right: 8px solid black;
+        border-top: 9px solid black;
+    }
+
+    #player {
+        left: 70px;
+        top: 30px;
+    }
+    #player img {
+        width: 30px;
+    }
+    nav {
+        height: 2500px;
+        width: 320px;
+       
+    }
+
+    #middlemenu1 {
+     	
+        width: 300px;
+        height: 390px;
+    }
+
+    #middlemenu2 {
+        width: 300px;
+        
+        height: 200px;
+        margin-top:20px;
+        margin-left: 0px;
+       
+    }
+
+    #middlemenu3 {
+        margin-top:50px;
+        height: 324px;
+        width: 300px;
+    }
+
+     #middlemenu4{
+         margin-top: 20px;
+         margin-left:0px;
+            width: 300px;
+            height: 324px;
+    }
+
+    #middlemenu5{
+        margin-top:20px;
+        width:300px;
+        height: 130px;
+    }
+
+    #middlemenu6{
+        margin-top:50px;
+        width:300px;
+        height: 250px;
+    }
+
+    #middlemenu7{
+    
+            margin-top:20px;
+            height: 294px;
+            width: 300px;
+    }
+
+    #middlemenu8{
+        margin-left:0;
+        width:300px;
+        height:294px;
+    }
+    #banner2 { 
+        width:300px;
+        height: 130px;
+        background-image: url('img/대회배너3.png'); 
+    }
+
+    #banner {
+        width: 300px;
+        height: 200px;
+        background-image: url('img/세로배너moblie.png');
+        background-size: 100%;
+    }
+
+    #search {
+        display: none;
+    }
+
+    .conbox {
+    	overflow:hidden;
+    	
+        width: 300px;
+        height: 330px;
+        display: none;
+    }
+
+   
+    footer {
+       width: 320px; 
+    }
+
+    footer ul {
+        
+        font-size:10px;    
+    }
+
+    footer li {
+        
+        display: inline-block;
+        padding: 10px;
+    
+    }
+
+    footer p {
+       
+        font-size: 10px;
+        color: lightslategray;
+        line-height: 22px;
+    }
+
+    input[id="menuicon"]+label {
+    		position:relative;
+    		bottom:250px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    div[class="sidebar"] {
+        width: 200px;
+        height: 600px;
+        position: fixed;
+        top: 100px;
+        left: -300px;
+    }
+
+    .navi {
+        font-size: 10px;
+    }
+    
+    ul.navi>li>a {
+        font-size: 25px;
+    }
+    ul.navi ul>li>a{
+    	font-size:20px;
+    }
+
+    input[id="menuicon"]:checked+label+div {
+        left: 0;
+    }
+
+    .con2>#con2wrapper1 {
+    	width:150px;
+        border:none;
+        height:150px;
+    }
+
+    .con2>#con2wrapper2 {
+        display: none;
+    }
+
+    .con1>#con1wrapper2 {
+        display: none;
+    }
+
+    #con2-1 {
+        border-top:1px solid #ccc;
+        width: 130px;
+		border-bottom:none;
+        height:320px;
+    }
+
+    #con2-1 img {
+        margin-top: 50px;
+        margin-left: 10px;
+        width: 120px;
+        height:230px;
+    }
+
+    #con2-2 {
+        border-top:1px solid #ccc;
+        /* border-bottom:1px solid #ccc; */
+        height: 330px;
+        width: 170px;
+    }
+    #commentBtn{
+    	font-size:11px;
+    	position:relative;
+    	left:90px;
+    	bottom:12px;
+    }
+
+    .playername {
+        font-size: 15px;
+        position:relative;
+        right:30px;
+
+    }
+
+    .possible {
+        position: relative;
+        left: 30px;
+    }
+
+    .skill {
+        position: relative;
+        left: 30px;
+        font-size: 12px;
+    }
+
+    .skill2 {
+        position: relative;
+        left: 30px;
+        font-size: 12px;
+    }
+
+    .phonenumber {
+        position: relative;
+        left: 30px;
+        top: 10px;
+        font-size: 12px;
+    }
+
+    .con1 a {
+        position: relative;
+        left: 20px;
+        top: 50px;
+    }
+
+    .con1>#con1wrapper1 {
+    
+        width: 300px;
+        height: 330px;
+       
+    }
+
+
+
+    #con1-1 {
+        width: 130px;
+        border-bottom: 1px solid #ccc;
+        float: left;
+        height: 130px;
+    }
+
+    #con1-2 {
+        border-bottom: 1px solid #ccc;
+        width: 160px;
+        height: 130px;
+        border-right: 1px solid #ccc;
+        float: left;
+    }
+
+    .con2>#con2wrapper1{
+        width:380px;
+        
+    }
+
+    #con1-3 {
+        display:none;
+    }
+
+    #con1-4 {
+        display:none;
+    }
+
+    #con1-5 {
+        border-bottom: 1px solid #ccc;
+        padding-right: 3%;
+        width: 285px;
+        height: 100px;
+        float: left;
+    }
+
+    #con1-6 {
+        border-right: 1px solid #ccc;
+        width: 150px;
+        height: 100px;
+        float: left;
+    }
+
+
+    #con1-7 {
+        width: 145px;
+        height: 100px;
+        float: left;
+    }
+
+    .month {
+        font-size: 15px;
+    }
+    .match {
+        position: relative;         
+        left: 25px;
+    }
+
+    .number {
+        position: relative; 
+        top: 25px;
+        left: 25px;
+    }
+
+    .money {
+        position: relative; 
+        left: 40px;
+    }
+
+    .moneyprice {
+        position: relative;
+        font-size: 20px;
+        color: forestgreen;
+        left: 45px;
+    }
+
+    .comment {
+        position: relative;
+        font-size: 12px;
+    }
+
+    .rank {
+        position: relative;
+        left: 60px;
+    }
+
+    .rank2 {
+        position: relative;
+        font-size: 15px;
+        color: black;
+        left: 70px;
+    }
+
+    .manner {
+        position: relative;
+        left: 60px;
+    }
+
+    .manner2 {
+        position: relative;
+        font-size: 15px;
+        color: black;
+        top: 30px;
+        left: 60px;
+    }
+
+    form ::placeholder {
+        padding: 30px;
+        color: gray;
+    }
+
+    #title {
+        width: 300px;
+        height: 30px;
+        border-bottom: 1px solid #ccc;
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    .possible{
+        font-size:12px;
+    }
+
+    #title p {
+        position: relative;
+        left: 15px;
+    }
+
+    #menu3con2{
+        width:50px;
+    }
+    #vs a{
+        position: relative;
+        left:5px;
+        padding:10px;
+        font-size:10px;
+    }
+    #menu3con1{
+        width: 120px;
+    }
+    #menu3con1 img{
+        width:80px;
+        margin-left:20px;
+    }
+    #teamname a {
+        font-size:13px;
+        margin-left:30px;
+    }
+    #winlose a {
+        font-size:13px;
+        margin-left:10px;
+    }
+
+    #menu3con3{
+        width:120px;
+    }
+
+    #menu3con3 img{
+        width:80px;
+        margin-left:30px;
+    }
+
+    #box2con1 {
+        margin-top:5px;
+    }
+
+    .list_wrap{
+        font-size:9px;
+        line-height: 30px;
+        height:32px;    
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .list_wrap a {
+        color:dimgray;
+        padding-left:30px;
+    }
+    .list_wrap b {
+        font-size:12px;
+        padding-left:10px;
+        color:red;
+        padding-right:10px;
+    }
+    
+    #result_date{
+        font-size:11px;
+        color:#6E6E6E;
+        float:right;
+        position:relative;
+        right:10px; 
+    }
+
+    #videowrap{
+    width:300px;
+    height:250px;
+    }
+
+    #videowrap :nth-child(3){
+        display:none;
+    }
+
+    #videowrap :nth-child(4){
+        display:none;
+    }
+
+    #videowrap :nth-child(7){
+        display:none;
+    }
+
+    #videowrap :nth-child(8){
+        display:none;
+    }
+
+    #video1{
+        float:left;
+        height:140px;
+        margin:10px;
+        border:1px solid #ccc;
+        width:120px;   
+    }
+    #videotitle{
+        height:40px;
+        width:120px; 
+        margin-left:10px;
+        margin-right:10px;
+        border:1px solid #ccc;
+        float:left;
+        text-align:center;
+        line-height: 40px;
+    }
+
+    #videotitle span{
+      font-size:5px;
+    }
+    .imgvideo{
+        height:140px;
+        width:120px;
+    }
+
+   
+    .visual{
+        margin-bottom:80px;
+        margin:0 auto;
+        height:100px;
+        width:250px;
+    }
+
+    .slick-prev{
+        font-size:0px;
+        position:relative;
+        right:30px;
+        padding:7px;
+        top:30px;
+    }
+
+    .slick-next{
+        font-size:0;
+        position:relative;
+        padding:7px;
+        left:260px;
+        bottom:50px;
+    }
+    
+    #freecontent{
+    	width:180px;
+    }
+    }
+
+@media screen and (min-width:768px) and (max-width:1099px) {
+    header {
+        width: 768px;
+        height: 100px;
+    }
+
+    #headernav{
+        position: relative;
+        top:22px;
+        left:20px;
+        width:768px;
+    }
+    
+    #topMenu {
+        margin:0 auto;
+    }
+    #topMenu > ul {
+        position: relative;
+        left:0px;
+    }
+    #topMenu > ul > li{
+        width:175px;
+        font-size:10px;
+    }
+
+    #topMenu > ul ul li{
+        padding-bottom: 5px;
+        width:175px;
+    }
+
+    #topMenu  ul ul  a{
+        font-size:11px;
+    }
+    #header2wrap{
+        background-image:url('img/헤더2이미지4.png');
+        background-image:100%;
+    }
+    #header2 {
+        width: 643px;
+        height: 200px;
+    }
+
+    #imgheader1p{
+        width:230px;
+        height:200px;
+    }
+    /* #imgheader1p img {
+        width:230px;
+    }
+ */
+    #headerpwrap{
+        margin-left:30px;
+        width:350px;
+        height:200px;
+    }
+
+    .header2p{
+        font-size:20px;
+    }
+
+    .header4p{
+        width:350px;
+    }
+
+    div #headerlogin {
+        display: none;
+    }
+
+    #logo {
+        font-size: 20px;
+        width: 155px;
+        position: relative;
+        left: 120px;
+        bottom: 15px;
+    }
+
+    #login {
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    #join {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    #customer {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    #right {
+        position: relative;
+        bottom: 45px;
+    }
+
+    .logo2 a {
+        margin-left: 280px;
+        font-size: 20px;
+        width: 160px;
+    }
+
+    #player {
+        position: relative;
+        left: 75px;
+        top: 30px;
+    }
+
+    #player img {
+        width: 35px;
+    }
+
+    nav { 
+        height: 3200px;
+        width: 768px;
+    }
+
+    #middlemenu1 {
+        margin-left:20px;     
+        width: 720px;
+        height: 744px;
+    }
+
+    #middlemenu2 {
+        margin-top:20px;
+        width: 720px;
+        height: 350px;
+    }
+
+    #middlemenu3 {
+        margin-top:50px;
+        margin-left:20px;  
+        width: 720px;
+        height: 324px;
+}
+    #middlemenu4{
+        margin-left:20px;  
+        margin-top:20px;
+        width: 720px;
+        height: 324px;
+}
+
+    #middlemenu5{
+        margin-left:20px;  
+         width: 720px;
+        height: 300px;
+}
+
+#middlemenu6{
+        margin-top:50px;
+        margin-left:20px;  
+        width: 720px;
+        height: 250px; 
+}
+
+#middlemenu7{
+    margin-left:20px;  
+        width: 720px;
+        height: 294px;
+}
+
+#middlemenu8{
+    margin-left:20px;  
+    width:720px;
+    height:294px;
+}
+
+#banner2 { 
+    width:720px;
+    height: 250px;
+    background-image: url('img/대회배너3.png'); 
+}
+
+    #banner {
+        width: 720px;
+        height: 350px;
+        background-image: url('img/세로배너4.png');
+    }
+
+    #search {
+        display: none;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    .conbox {
+    	overflow:
+        width: 710px;
+        height: 680px;
+    }
+
+    
+ 
+    input[id="menuicon"]+label {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        left:20px;
+        bottom:310px;
+    }
+
+   
+    div[class="sidebar"] {
+        width: 200px;
+        height: 600px;
+        position: fixed;
+        top: 100px;
+    }
+
+    .navi {
+        font-size: 13px;
+    }
+
+    ul.navi>li>a {
+        font-size: 17px;
+    }
+
+    .con1 a {
+        position: relative;
+        left: 20px;
+    }
+
+    .con1>#con1wrapper1 {
+        width: 720px;
+        height: 330px;
+    }
+
+    .con1>#con1wrapper2 {
+        width: 720px;
+        height: 330px;
+    }
+
+    .con1>#con1wrapper3 {
+        display: none;
+    }
+
+    .con1>#con1wrapper4 {
+        display: none;
+    }
+
+    #con1-1 {
+        width: 160px;
+        border-bottom: 1px solid #ccc;
+        float: left;
+        height: 130px;
+
+    }
+
+    #con1-2 {
+        border-bottom: 1px solid #ccc;
+        width: 200px;
+        height: 130px;
+        border-right: 1px solid #ccc;
+        float: left;
+    }
+
+    #con1-3 {
+        border-bottom: 1px solid #ccc;
+        width: 170px;
+        border-right: 1px solid #ccc;
+        height: 130px;
+        float: left;
+    }
+
+    #con1-4 {
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        width: 165px;
+        height: 130px;
+        float: left;
+    }
+
+    #con1-5 {
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid white;
+        padding-right: 3%;
+        width: 697px;
+        height: 100px;
+        float: left;
+    }
+
+    #con1-6 {
+        border-right: 1px solid #ccc;
+        width: 360px;
+        height: 100px;
+        float: left;
+    }
+
+    #con1-7 {
+        width: 359px;
+        height: 100px;
+        float: left;
+    }
+
+    .con2>#con2wrapper2 {
+        width: 721px;
+        height: 285px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .con2>#con2wrapper1 {
+        width: 721px;
+        height:340px;   
+    }
+
+    #con2-2 {
+        height: 100px;
+        width: 300px;
+    }
+
+    .month {
+        font-size: 20px;
+    }
+
+    .time {
+        font-size: 15px;
+    }
+
+    .where {
+    		width:90px;
+        font-size: 15px;
+    }
+
+    .match {
+        position: relative;
+        left: 25px;
+    }
+
+    .number {
+        position: relative;
+        font-size: 20px;
+        top: 25px;
+        left: 25px;
+    }
+
+    .money {
+        position: relative;
+        font-size: 15px;
+        top: 20px;
+        left: 40px;
+    }
+
+    .moneyprice {
+        position: relative;
+        font-size: 20px;
+        top: 25px;
+        left: 45px;
+    }
+
+    .comment {
+        position: relative;
+        font-size: 15px;
+        top: 20px;
+        left: 10px;
+
+    }
+
+    .rank {
+        position: relative;
+        font-size: 20px;
+        top: 15px;
+        left: 130px;
+    }
+
+    .rank2 {
+        position: relative;
+        font-size: 20px;
+        top: 25px;
+        left: 140px;
+    }
+
+    .manner {
+        position: relative;
+        font-size: 20px;
+        top: 15px;
+        left: 140px;
+    }
+
+    .manner2 {
+        position: relative;
+        font-size: 20px;
+        top: 30px;
+        left: 140px;
+    }
+
+    #title {
+        width: 720px;
+        height: 30px;
+        font-size: 15px;
+        line-height: 30px;
+    }   
+    
+    #menu3con1{
+        width:330px;
+    }
+    #menu3con1 img{
+        margin-left:120px;
+    }
+    #teamname a {
+        margin-left:125px;
+    }
+    #winlose a {
+        margin-left:115px;
+    }
+    #menu3con3 a{
+        margin-left:70px;
+    }
+    #menu3con3 > #winlose a {
+        margin-left:55px;
+    }
+
+    #menu3con3{
+        width:240px;
+    }
+
+    #menu3con3 img{
+        margin-left:100px;
+    }
+
+    #menu3con3 > #teamname a{
+        margin-left:110px;
+    }
+
+    #menu3con3 > #winlose a{
+        margin-left:90px;
+    }
+
+    #box2con1 {
+        margin-top:5px;
+    }
+
+    #videowrap{
+    height:289px;
+}
+
+    #video1{
+        height:140px;
+        margin:10px;
+        width:155px;   
+    }
+
+    #videotitle{
+        width:153px; 
+    }
+
+    #videotitle span{
+        font-size:10px;
+    }
+
+    .imgvideo{
+        height:140px;
+        width:155px;
+
+    }
+
+    .visual{
+        margin-bottom:80px;
+        height:100px;
+        width:550px;
+    }
+
+    .slick-prev{
+        font-size:0px;
+        position:relative;
+        right:30px;
+        padding:7px;
+        top:40px;
+    }
+
+    .slick-next{
+        font-size:0;
+        position:relative;
+        padding:7px;
+        left:560px;
+        bottom:100px;
+    }
+
+    footer{
+        width:768px;
+    }
+    
+    #freecontent{
+    	width:570px;
+    }
+    #con2-1 {
+	    float: left;
+	    background-image: url('img/fooball-player.png');
+	    width: 270px;
+	    border-right: 0.5px solid #ccc;
+	    border-bottom: 1px solid #ccc;
+	    height: 337px;
+
+}
+
+	#con2-1 img {
+	    margin-top: 10px;
+	    margin-left: 10px;
+	    width: 255px;
+	    height:325px;
+	}
+	.header1p{
+		position:relative;
+		bottom:30px;
+		width:100%;
+		height:100%;
+	}
+}
+
+

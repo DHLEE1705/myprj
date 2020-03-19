@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .menu-box-1 ul, li{
+            list-style:none;
+        }   
+        
+        .menu-box-1 a {
+            text-decoration: none;
+            display:block;
+            padding:10px;
+        } 
+
+        .menu-box-1 > ul {
+            /* background-color:red; */
+            display: inline-block;
+            
+        }
+
+        .menu-box-1{
+            background-color:aqua;
+            text-align:center;
+        }
+
+        .menu-box-1 > ul > li{
+            display:inline-block;
+        }
+
+        .menu-box-1 > ul > li:hover > a{
+            background-color:black;
+            color:red;
+        }
+
+        .menu-box-1 > ul ul {
+            display:none;
+            background-color:red;
+            padding:0px;
+            position:absolute;
+        }
+
+        .menu-box-1 > ul > li:hover > ul{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <nav class = "menu-box-1">
+        <ul>
+            <li><a href="#">1차메뉴아이템</a>
+             <ul>
+                <li><a href="#">2차메뉴아이템</a></li>
+                <li><a href="#">2차메뉴아이템</a></li>
+                <li><a href="#">2차메뉴아이템</a></li>
+                <li><a href="#">2차메뉴아이템</a></li>
+             </ul>
+            </li>
+            <li><a href="#">1차메뉴아이템</a>
+                <ul>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                 </ul>
+            </li>
+            <li><a href="#">1차메뉴아이템</a>
+                <ul>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                 </ul>
+            </li>
+            <li><a href="#">1차메뉴아이템</a>
+                <ul>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                    <li><a href="#">2차메뉴아이템</a></li>
+                 </ul>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+</html>

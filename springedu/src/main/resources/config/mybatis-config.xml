@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<typeAliases>
+		<typeAlias type="com.kh.portfolio.member.vo.MemberVO" alias="MemberVO"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board.vo.BoardVO" alias="BoardVO"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board2.vo.BoardVO2" alias="BoardVO2"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board3.vo.BoardVO3" alias="BoardVO3"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board4.vo.BoardVO4" alias="BoardVO4"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board.vo.RboardVO" alias="RboardVO"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board2.vo.RboardVO2" alias="RboardVO2"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board4.vo.RboardVO4" alias="RboardVO4"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board.vo.BoardFileVO" alias="BoardFileVO"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board.vo.BoardCategoryVO" alias="BoardCategoryVO"></typeAlias>
+		<typeAlias type="com.kh.portfolio.board.vo.VoteVO" alias="VoteVO"></typeAlias>
+</typeAliases> <!--  parameter type 이름 줄일수 있음 -->
+</configuration>
