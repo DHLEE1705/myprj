@@ -1,5 +1,7 @@
 package com.kh.portfolio.board4.controller;
-
+/*매치등록과 관련된 컨트롤러
+ * 
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

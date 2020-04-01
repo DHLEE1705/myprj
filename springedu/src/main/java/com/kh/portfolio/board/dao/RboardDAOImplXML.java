@@ -1,5 +1,9 @@
 package com.kh.portfolio.board.dao;
 
+/*
+ * 커뮤니티 게시판
+ */
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

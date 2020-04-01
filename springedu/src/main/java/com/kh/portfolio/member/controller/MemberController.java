@@ -1,5 +1,7 @@
 package com.kh.portfolio.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -14,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,14 +31,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.kh.portfolio.board.vo.BoardFileVO;
-import com.kh.portfolio.board.vo.BoardVO;
 import com.kh.portfolio.common.Code;
 import com.kh.portfolio.member.svc.MemberSVC;
 import com.kh.portfolio.member.vo.MemberVO;
 
 //RequestMapping,PostMapping 은 클래스레벨이나 메소드레벨 둘다 에서 쓰일 수 있지만 getMapping은 메소드 레벨에서만 쓰인다.
-@Controller//Presentation Layer에서 Contoller를 명시하기 위해서 사용
+@Controller
 @RequestMapping("/member")
 
 public class MemberController {
@@ -124,7 +124,6 @@ public class MemberController {
 		MemberVO memberVO = memberSVC.selectMember(id);
 		logger.info("getFile " + memberVO.toString());
 		final HttpHeaders headers = new HttpHeaders();
-		/*if(memberVO.getFile() != null ) {*/
 			
 			String filename = null;
 			try {
@@ -134,7 +133,7 @@ public class MemberController {
 				e.printStackTrace();
 			}
 			headers.setContentDispositionFormData("attachment", filename);
-		/* } */
+			
 		return new ResponseEntity<byte[]>(memberVO.getFdata(), headers, HttpStatus.OK);
 	}
 	//회원수정
@@ -144,7 +143,7 @@ public class MemberController {
 			BindingResult result,
 			HttpSession session,
 			Model model
-			) {
+			) throws IOException {
 		logger.info("/modify호출됨!");
 		//유효성 체크
 		if(result.hasErrors()) {
@@ -156,11 +155,17 @@ public class MemberController {
 		//회원정보수정
 		int cnt = memberSVC.modifyMember(memberVO);
 		logger.info("수정처리결과 :" + cnt);
-
-		//세션정보 수정
-		session.removeAttribute("member");	
-		session.setAttribute("member", memberVO);	
-		return "redirect:/member/modifyForm/"+memberVO.getId();
+		if(cnt==1) {
+			//세션정보 수정
+			session.removeAttribute("member");	
+			session.setAttribute("member", memberVO);
+			
+			return "redirect:/member/modifyForm/"+memberVO.getId();
+		}
+		else {
+			model.addAttribute("svr_msg", "비밀번호가 일치하지 않습니다.!");
+			return "member/modifyForm";
+		}
 	}
 	
 
@@ -195,29 +200,6 @@ public class MemberController {
 	public String findIDForm() {
 		return "member/findIDForm";
 	}
-	
-	//아이디 찾기
-//	@GetMapping(value="/id/{tel}/{birth}",produces = "application/json")
-//	@ResponseBody    
-//	public ResponseEntity<String> findId(
-//			@PathVariable("tel") String tel,  //url 경로상에서 받아오기위해서 PathVariable쓴다
-//			@PathVariable("birth") String birth
-//			){
-//		ResponseEntity<String> res = null;
-//		
-//		String findId = null;
-//		logger.info("tel:" + tel);
-//		logger.info("birth:" + birth);
-//		
-//			findId = memberSVC.findID(tel,java.sql.Date.valueOf(birth));
-//			if(findId != null) {
-//				res = new ResponseEntity<String>(findId, HttpStatus.OK); // OK 는 STATUS가 200번임
-//			}
-//			else {
-//				res = new ResponseEntity<String>("찾고자하는 아이디가 없습니다.", HttpStatus.BAD_REQUEST); //STATUS가 400번
-//			}
-//		return res;
-//	}
 
 	//아이디 찾기 post방식
 	@PostMapping(value="/id",produces = "application/json")

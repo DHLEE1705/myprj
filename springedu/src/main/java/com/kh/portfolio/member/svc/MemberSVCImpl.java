@@ -27,7 +27,6 @@ public class MemberSVCImpl implements MemberSVC {
 	@Qualifier("mxml") // ""안에는 기본값으로 앞글자가 소문자인 클래스이름이들어간다
 	MemberDAO memberDAO; //Inject 어노테이션이 있어서 new MemberDAO 안해도됨
 	
-//	MemberDAOImplXML memberDAO = new MemberDAOImplXML();
 	//즉 MemberDAO는 인터페이스이기때문에 MemberDAO를 구현한 클래스인 MemberDAOImplJDBC 또는 MemberDAOImpXML을 써야한다.
 	//왜냐 구현한 내용이 구현클래스내에 있기 때문이다. MemberDAO에는 빈껍데기 메소드 이고 구현한 클래스가 2개이므로 구분해주기 위해서
 	//@Qualifier를 이용해서 MemberDAOImplXML을 쓰겠다고 표시해준것.
@@ -54,7 +53,6 @@ public class MemberSVCImpl implements MemberSVC {
 			int cnt = memberDAO.joinMember(memberVO);
 			logger.info("memberVO" + memberVO);
 		return cnt;
-		/* return memberDAO.joinMember(memberVO); */
 	}
 	
 //회원 수정
@@ -76,10 +74,8 @@ public class MemberSVCImpl implements MemberSVC {
 				e.printStackTrace();
 			}
 		}
-		logger.info("MemberSVCImpl.modifyMember(MemberVO memberVO) 호출됨!");
-		
+		logger.info("MemberSVCImpl.modifyMember(MemberVO memberVO) 호출됨!");		
 		int cnt = memberDAO.modifyMember(memberVO);
-		
 	return cnt;	
 	}
 

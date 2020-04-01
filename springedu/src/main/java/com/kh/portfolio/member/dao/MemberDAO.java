@@ -1,7 +1,5 @@
 package com.kh.portfolio.member.dao;
 
-
-
 import java.sql.Date;
 import java.util.List;
 

@@ -23,7 +23,7 @@ public interface MemberSVC {
 	//회원 탈퇴
 	int outMember(String id, String pw);
 	
-//사진 삭제
+	//사진 삭제
 	int fileDelete(String id);
 	//로그인
 	MemberVO loginMember(String id, String pw);

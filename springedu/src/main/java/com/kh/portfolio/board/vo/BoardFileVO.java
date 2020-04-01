@@ -1,5 +1,7 @@
 package com.kh.portfolio.board.vo;
-
+/*
+ * 커뮤니티 게시판
+ */
 import java.sql.Timestamp;
 
 import lombok.Data;

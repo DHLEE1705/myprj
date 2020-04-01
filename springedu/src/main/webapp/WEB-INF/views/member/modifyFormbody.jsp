@@ -125,7 +125,9 @@
                     <li>
                         <a href="#">커뮤니티</a>
                         <ul>
-                            <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                             <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                             
                             
                         </ul>
@@ -183,10 +185,7 @@
                           	
                             <div><form:label path="pw">비밀번호</form:label></div>
                             <div><form:input type="password" path="pw" id="pw"/><i class="fas fa-lock fa-lg"></i></div>
-                            <div>
-                            	<span class="errmsg" id="pw_errmsg"></span>
-                            	<form:errors path = "pw" cssClass="errmsg"></form:errors>
-                            </div>
+                            <div><span style = "color:red;">${svr_msg }</span></div>
                           	                           
                             <div><form:label path="name">이름</form:label></div>
                             <div><form:input type="text" path="name" id="name" placeholder="2~4글자" /></div>

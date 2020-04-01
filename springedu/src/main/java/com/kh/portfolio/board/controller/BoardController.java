@@ -1,5 +1,7 @@
 package com.kh.portfolio.board.controller;
-
+/*
+ * 커뮤니티 게시판 컨트롤러
+ */
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -33,42 +35,36 @@ import com.kh.portfolio.board.vo.BoardFileVO;
 import com.kh.portfolio.board.vo.BoardVO;
 import com.kh.portfolio.member.vo.MemberVO;
 
-@Controller //redirect:/ >> /있으면 무조건 절대경로 portfolio로 / 없으면 ~~~~
+@Controller 
 @RequestMapping("/board")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-	
 		
 	@Inject
 	BoardSVC boardSVC;
 	
-	@ModelAttribute // 다른 메소드에서 공유가능 ex) 밑에 writeForm의 return 뷰에서 쓸수 있따 boardCategoryVO를
+	@ModelAttribute
 	public void getBoardCategory(Model model) {
 		List<BoardCategoryVO> boardCategoryVO = boardSVC.getCategory();
 		model.addAttribute("boardCategoryVO", boardCategoryVO);
-		
 	}
+	
 	//게시글 작성 양식
-	@GetMapping("/writeForm/{returnPage}")
+	@GetMapping("/writeForm/{category}/{returnPage}")
 	public String writeForm(
+			@PathVariable String category,
 			@ModelAttribute @PathVariable String returnPage,
 			Model model, HttpServletRequest request) {
-		//case1)
-		  model.addAttribute("boardVO", new BoardVO());
-		//case2)
-		
-//		MemberVO memberVO = (MemberVO)request.getSession().getAttribute("member");
-//		BoardVO boardVO = new BoardVO();		
-//		boardVO.setBid(memberVO.getId());
-//		boardVO.setBname(memberVO.getName());
-//		model.addAttribute("boardVO", boardVO);
 
+		  model.addAttribute("boardVO", new BoardVO());
+		  model.addAttribute("category",category);
 		return "/board/writeForm";
 	}
 	
 	//게시글 작성
-	@PostMapping("/write/{returnPage}")
+	@PostMapping("/write/{category}/{returnPage}")
 	public String write(
+			@PathVariable String category,
 			@PathVariable String returnPage,
 			@Valid @ModelAttribute("boardVO") BoardVO boardVO,
 			BindingResult result,
@@ -85,44 +81,36 @@ public class BoardController {
 		boardVO.setBname(memberVO.getName());
 		boardSVC.write(boardVO);
 		
-		return "redirect:/board/view/"+returnPage+"/"+boardVO.getBnum();
+		return "redirect:/board/view/"+category + "/" + returnPage+"/"+boardVO.getBnum();
 	}
 	
-	//경기결과 게시판  목록 보기 
-	/* @GetMapping("/list") */
-	@GetMapping({"/list",
-							 "/list/{reqPage}",
-							 "/list/{reqPage}/{searchType}/{keyword}", 
+  //게시글 목록 보기
+	@GetMapping({"/list/{category}",
+							 "/list/{category}/{reqPage}",
+							 "/list/{category}/{reqPage}/{searchType}/{keyword}", 
 	})
 	public String listAll(
+			 @PathVariable String category,
 			 @PathVariable(required=false) String reqPage,
 			 @PathVariable(required=false) String searchType,
 			 @PathVariable(required=false) String keyword,
 			HttpSession session, 
 			Model model) {
-							
-			MemberVO memberVO = (MemberVO)session.getAttribute("member");
-//			if(memberVO != null) {
-//			logger.info("세션있음" + memberVO.toString());
-//			}
-//			else {
-//				logger.info("세션없음");
-//				return "redirect:/";
-//			}
-			
-		/* model.addAttribute("list", boardSVC.list()); */
+						
+		//카테고리 분류
+		model.addAttribute("category", category);
 		//게시글 목록
-		model.addAttribute("list", boardSVC.list(reqPage,searchType,keyword));
+		model.addAttribute("list", boardSVC.list(category,reqPage,searchType,keyword));
 		//페이지 제어
-		model.addAttribute("pc", boardSVC.getPageCriteria(reqPage, searchType, keyword));
+		model.addAttribute("pc", boardSVC.getPageCriteria(category,reqPage, searchType, keyword));
 		return "board/list";		
 	}
 	
-	
 	//게시글 보기
-	@GetMapping("/view/{returnPage}/{bnum}")
+	@GetMapping({"/view/{category}/{returnPage}/{bnum}", "/view/{bnum}", "/view/{category}/{bnum}"})
 	public String view(
-			@ModelAttribute @PathVariable String returnPage,  
+			@ModelAttribute @PathVariable (required=false) String returnPage,
+			@PathVariable (required=false) String category,
 			@PathVariable String bnum,
 			Model model) {
 		
@@ -164,18 +152,19 @@ public class BoardController {
 	}
 	
 	//게시글 삭제
-	@GetMapping("/delete/{returnPage}/{bnum}")
+	@GetMapping("/delete/{category}/{returnPage}/{bnum}")
 	public String delete(
+			@PathVariable String category,
 			@PathVariable String returnPage,
 			@PathVariable String bnum, 
 			Model model) {
 		
 		//1)게시글 및 첨부파일 삭제
 		boardSVC.delete(bnum);
-		//2)
-		model.addAttribute("list", boardSVC.list());
-		
-		return "redirect:/board/list/"+returnPage;
+
+		model.addAttribute("list", boardSVC.list(category));
+		logger.info("category=" +category );
+		return "redirect:/board/list/"+ category + "/" + returnPage;
 	}
 	
 	//첨부파일 1건 삭제
@@ -195,8 +184,9 @@ public class BoardController {
 	}
 	
 	//게시글 수정
-	@PostMapping("/modify/{returnPage}")
+	@PostMapping("/modify/{category}/{returnPage}")
 	public String modify(
+			@PathVariable String category,
 			@PathVariable String returnPage,
 			@Valid @ModelAttribute("boardVO") BoardVO boardVO,
 			BindingResult result	
@@ -207,36 +197,35 @@ public class BoardController {
 		
 		logger.info("게시글 수정 내용:" + boardVO.toString());
 		boardSVC.modify(boardVO);
-		return "redirect:/board/view/"+ returnPage + "/" + boardVO.getBnum();
+		return "redirect:/board/view/" + category + "/" + returnPage + "/" + boardVO.getBnum();
 	}
 	
 	//답글 양식
-	@GetMapping("/replyForm/{returnPage}/{bnum}")
+	@GetMapping("/replyForm/{category}/{returnPage}/{bnum}")
 	public String replyForm(
-		@ModelAttribute @PathVariable String returnPage, // returnPage 라는 모델이름으로 replyForm에서 사용가능
+
+		@ModelAttribute @PathVariable String returnPage,
+		@PathVariable String category,
 		@PathVariable String bnum,
+		
 		Model model) {
 		
 		Map<String,Object> map = boardSVC.view(bnum);
 		BoardVO boardVO = (BoardVO)map.get("board");
-		/*
-		 * List<BoardFileVO> files = null; if(map.get("files") != null) { files =
-		 * (List<BoardFileVO>)map.get("files"); }
-		 */
+		
 				boardVO.setBtitle(boardVO.getBtitle());
 				boardVO.setBcontent(boardVO.getBcontent());
-//		  boardVO.setBtitle(boardVO.getBtitle());
-//			boardVO.setBcontent(boardVO.getBcontent());
+
 				model.addAttribute("boardVO", boardVO);
-		/* model.addAttribute("files", files); */
-		
+				model.addAttribute("category" ,category);
 		return "/board/replyForm";
 		
 	}
 	
 	//답글 처리
-	@PostMapping("/reply/{returnPage}")
-		public String reply(
+	@PostMapping("/reply/{category}/{returnPage}")
+		public String reply(	
+        @PathVariable String category,
 				@PathVariable String returnPage,
 				@Valid @ModelAttribute("boardVO") BoardVO boardVO,
 				BindingResult result,
@@ -251,7 +240,8 @@ public class BoardController {
 		boardVO.setBname(memberVO.getName());
 		boardSVC.reply(boardVO);
 		
-		return "redirect:/board/list/"+returnPage;
+		return "redirect:/board/list/" + category + "/"  + returnPage;
+		
 		}
 	}
 	

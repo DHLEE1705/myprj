@@ -1,5 +1,7 @@
 package com.kh.portfolio.board2.controller;
-
+/*
+ * 용병 모집과 관련된 컨트롤러
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -56,7 +58,6 @@ public class BoardController2 {
 		matchmethod.add(new Code("5vs5","5vs5"));
 		matchmethod.add(new Code("6vs6","6vs6"));
 		matchmethod.add(new Code("7vs7","7vs7"));
-		
 		model.addAttribute("matchmethod", matchmethod);
 		
 		//실력
@@ -73,31 +74,24 @@ public class BoardController2 {
 				wantc.add(new Code("2명","2명"));
 				wantc.add(new Code("3명","3명"));
 				wantc.add(new Code("4명","4명"));
-
-                model.addAttribute("wantc", wantc);
+        model.addAttribute("wantc", wantc);
 		//매치 상태
 				List<Code> matchstatus = new ArrayList<>();
 				matchstatus.add(new Code("대기중","대기중"));
-				matchstatus.add(new Code("완료","완료"));
-				
-				model.addAttribute("matchstatus",matchstatus);
-	   
-							
-		
+				matchstatus.add(new Code("완료","완료"));	
+				model.addAttribute("matchstatus",matchstatus);	   								
 	}
 	
 	@ModelAttribute // 다른 메소드에서 공유가능
 	public void getBoardCategory(Model model) {
 		List<BoardCategoryVO> boardCategoryVO = boardSVC2.getCategory();
-		model.addAttribute("boardCategoryVO", boardCategoryVO);
-		
+		model.addAttribute("boardCategoryVO", boardCategoryVO);		
 	}
 	//용병모집 작성 양식
 		@GetMapping("/list4")
 		public String list4(
-				Model model, HttpServletRequest request) {
-			
-			model.addAttribute("boardVO2", new BoardVO2());	
+				Model model, HttpServletRequest request) {			
+			  model.addAttribute("boardVO2", new BoardVO2());	
 			
 			return "/board/list4";
 		}
@@ -132,8 +126,7 @@ public class BoardController2 {
 			
 			Map<String,Object> map = boardSVC2.view(bnum);
 			BoardVO2 boardVO2 = (BoardVO2)map.get("board2");
-			logger.info(boardVO2.toString());
-			
+			logger.info(boardVO2.toString());			
 			model.addAttribute("boardVO2", boardVO2);
 			
 			return "/board/readForm2";
@@ -143,11 +136,9 @@ public class BoardController2 {
 		@GetMapping("/delete2/{bnum}")
 		public String delete(
 				@PathVariable String bnum, 
-				Model model) {
-			
+				Model model) {		
 			//1)게시글 및 첨부파일 삭제
 			boardSVC2.delete(bnum);
-			//2)
 			model.addAttribute("list", boardSVC2.list());
 			
 			return "redirect:/board3/list6/";
@@ -167,7 +158,6 @@ public class BoardController2 {
 			
 			logger.info("게시글 수정 내용:" + boardVO2.toString());
 			boardSVC2.modify(boardVO2);
-		/* return "redirect:/board3/view2/"+ boardVO2.getBnum(); */
 		return "redirect:/board3/list6/";
 		}
 		

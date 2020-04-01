@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import com.kh.portfolio.member.vo.MemberVO;
 
-
 @WebFilter(description = "관리자페이지 인증필터링", urlPatterns = { "/admin/*" })
 public class AdminFilter implements Filter {
 
@@ -34,10 +33,10 @@ public class AdminFilter implements Filter {
 		String contextPath = req.getContextPath();
 		String command = uri.substring(contextPath.length(), contextPath.length()+7);
 		
-//		System.out.println("uri = " + uri);
-//		System.out.println("contextPath = " + contextPath);
-//		System.out.println("command = " + command);
-//		
+		System.out.println("uri = " + uri);
+		System.out.println("contextPath = " + contextPath);
+		System.out.println("command = " + command);
+		
 		if(command.equalsIgnoreCase("/admin/")) {
 			HttpSession session = req.getSession(false);
 		

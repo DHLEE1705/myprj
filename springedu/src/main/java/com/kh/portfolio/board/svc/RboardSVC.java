@@ -1,4 +1,7 @@
 package com.kh.portfolio.board.svc;
+/*
+ * 커뮤니티 게시판
+ */
 
 import java.util.List;
 

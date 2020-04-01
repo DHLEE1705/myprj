@@ -1,5 +1,5 @@
 package com.kh.portfolio.board4.vo;
-
+/*매치등록, 매치 게시판*/
 import java.sql.Timestamp;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -28,8 +28,7 @@ public class RboardVO4 {
 	private String prname;		//prname 부모댓글별칭	
 	
 	private MultipartFile file;
-	private byte[] rfdata;					//첨부파일
-	private String rfname;					
-	private long rfsize;
+	private byte[] fdata;					//첨부파일
+	private String fname;	
 	
 }

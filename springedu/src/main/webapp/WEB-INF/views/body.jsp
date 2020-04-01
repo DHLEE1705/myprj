@@ -103,7 +103,9 @@
                         <li>
                             <a href="#">커뮤니티</a>
                             <ul>
-                                <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                                <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      				 <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      				 <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                                 
                                 
                             </ul>
@@ -228,23 +230,21 @@
                     <p>경기 결과</p>
                 </div>
                 <div id="contentwrap4">
-                    <c:forEach var = "rec" items="${list }">
-                     <c:if test = "${rec.boardCategoryVO.cid == 1002}"> 
+                    <c:forEach var = "rec" items="${RESULT }">
                         <ul type="circle" class="matchresult">
                             <div class="list_wrap">
                                 <li> 		
                                 	
-			                          <a href="${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">
+			                         <a href="${pageContext.request.contextPath}/board/view/${rec.boardCategoryVO.cname }/${rec.bnum }">
 			                          <div id = "freecontent">
 			                          <c:forEach begin="1" end="${rec.bindent }">&nbsp;&nbsp;</c:forEach>
 																<c:if test="${rec.bindent > 0 }">
-																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;[답글]</i>															
+																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;</i>															
 																</c:if>
 			                          <span style ="color:red; padding-right:15px;">경기 결과</span><span style ="padding-right:10px; color:#8181F7;"><i class="fas fa-futbol"></i></span>${rec.btitle }                              
 			                          </div><span id="result_date" ><fmt:formatDate value="${rec.bcdate }" pattern="yyyy-MM-dd"/></span></a></li>
                             </div>
                         </ul>
-                    </c:if>
                     </c:forEach>
                 </div>
             </div>
@@ -284,17 +284,17 @@
                     <p>공지사항</p>
                 </div>
                 <div id="contentwrap4">
-                <c:forEach var = "rec" items="${list }">
+                <c:forEach var = "rec" items="${NOTICE }">
                      <c:if test = "${rec.boardCategoryVO.cid == 1001}">
                     <ul type="circle" class="matchresult">
                         <div class="list_wrap">
                                 <li> 		
                                 	
-			                          <a href="${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">
+			                           <a href="${pageContext.request.contextPath}/board/view/${rec.boardCategoryVO.cname }/${rec.bnum }">
 			                          <div id = "freecontent">
 			                          <c:forEach begin="1" end="${rec.bindent }">&nbsp;&nbsp;</c:forEach>
 																<c:if test="${rec.bindent > 0 }">
-																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;[답글]</i>															
+																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;</i>															
 																</c:if>
 			                       
 			                       <span style="padding-right:10px;"><i class="fas fa-bullhorn" style="color:red;"></i></span>${rec.btitle }                              
@@ -311,23 +311,23 @@
                     </div>
                     <div id="contentwrap4">
                  
-                   <c:forEach var = "rec" items="${list }">
-                     <c:if test = "${rec.boardCategoryVO.cid == 1003}"> 
+                   <c:forEach var = "rec" items="${BLACK }">
+							
                         <ul type="circle" class="matchresult">
                             <div class="list_wrap">
                                 <li> 		
-                                	
-			                          <a href="${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">
+                                		
+			                           <a href="${pageContext.request.contextPath}/board/view/${rec.boardCategoryVO.cname }/${rec.bnum }">
 			                          <div id = "freecontent">
 			                          <c:forEach begin="1" end="${rec.bindent }">&nbsp;&nbsp;</c:forEach>
 																<c:if test="${rec.bindent > 0 }">
-																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;[답글]</i>															
+																<i class="fas fa-reply" style = "position:relative;">&nbsp;&nbsp;</i>															
 																</c:if>
 			                          ${rec.btitle }                              
 			                          </div><span id="result_date" ><fmt:formatDate value="${rec.bcdate }" pattern="yyyy-MM-dd"/></span></a></li>
                             </div>
                         </ul>
-                    </c:if>
+                  
                     </c:forEach>
                     
                     </div>                                  

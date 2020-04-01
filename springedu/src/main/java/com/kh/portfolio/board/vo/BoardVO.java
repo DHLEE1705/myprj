@@ -1,5 +1,7 @@
 package com.kh.portfolio.board.vo;
-
+/*
+ * 커뮤니티 게시판
+ */
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,8 +19,7 @@ import lombok.Data;
 @Entity
 @Data
 public class BoardVO {
-	private long bnum;						//BNUM      NOT NULL NUMBER(10)    
-	//private long bcategory;				//BCATEGORY NOT NULL NUMBER(3)   
+	private long bnum;						//BNUM      NOT NULL NUMBER(10)      
 	@Valid //계층형 유효성 검사시 @Valid를 추가한다.
   private BoardCategoryVO boardCategoryVO;
 	@NotNull

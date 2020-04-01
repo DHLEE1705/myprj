@@ -1,5 +1,7 @@
 package com.kh.portfolio.board2.controller;
-
+/*
+ * 용병모집 게시판 댓글컨트롤러 
+  */
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

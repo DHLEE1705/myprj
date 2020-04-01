@@ -1,5 +1,9 @@
 package com.kh.portfolio.board.dao;
 
+/*
+ * 커뮤니티 게시판
+ */
+
 import java.util.List;
 
 import com.kh.portfolio.board.vo.BoardCategoryVO;
@@ -33,13 +37,13 @@ public interface BoardDAO {
 	
 	//게시글목록
 	//1)전체
-	List<BoardVO> list();
+	List<BoardVO> list(String category);
 	//2)검색어 없는 게시글페이징
 	List<BoardVO> list(int startRec, int endRec);	
 	//3)검색어 있는 게시글검색(전체,제목,내용,작성자ID,별칭)
-	List<BoardVO> list(int startRec, int endRec, String searchType,String keyword);
+	List<BoardVO> list(String category, int startRec, int endRec, String searchType,String keyword);
 	//총 레코드수
-	int totalRecordCount(String searchType,String keyword);
+	int totalRecordCount(String category, String searchType,String keyword);
 	
 	//게시글답글작성
 	int reply(BoardVO boardVO);

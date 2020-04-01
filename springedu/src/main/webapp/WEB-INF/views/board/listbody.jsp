@@ -16,7 +16,8 @@
 		writeBtn.addEventListener("click", function(e){
 			e.preventDefault();
 			let returnPage = e.target.getAttribute('data-returnPage');
-			location.href=getContextPath()+"/board/writeForm/"+returnPage;
+			let category= e.target.getAttribute('data-category');
+			location.href=getContextPath()+"/board/writeForm/"+category+"/"+returnPage;
 			},false);
 			
 
@@ -34,9 +35,12 @@
 
 		let stype = searchType.value; //검색유형
 		let kword = keyword.value;    //검색어
+		let category = e.target.getAttribute('data-category');
+		console.log(category);
 
-		location.href = getContextPath() + "/board/list/1/" + stype + "/" + kword;
-	},false);
+		location.href = getContextPath() + "/board/list/" + category + "/1/" + stype + "/" + kword;
+		
+		},false);
 			
 }
 </script>
@@ -77,7 +81,9 @@
                     <li>
                         <a href="#">커뮤니티</a>
                         <ul>
-                            <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                            <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                             
                             
                         </ul>
@@ -89,12 +95,9 @@
         	<div id = "searchbar">
         		<form>
         		<select name="searchType" id = "searchType" style = "color: #696969;">
-        			<option value="A" 
+        				<option value="A" 
   						<c:out value="${pc.fc.searchType == 'A' ? 'selected' :'' }" />>전체</option>
-  						
-  						<option value="CA" 
-  						<c:out value="${pc.fc.searchType == 'CA' ? 'selected' :'' }" />>분류별</option>
-  						
+  						 						
   						<option value="TC" 
   						<c:out value="${pc.fc.searchType == 'TC' ? 'selected' :'' }" />>제목+내용</option>
   						
@@ -107,7 +110,7 @@
   						<option value="I"
   						<c:out value="${pc.fc.searchType == 'I' ? 'selected' :'' }" />>작성자</option>						
 						</select>
-        			<input type ="search" name="keyword" value = "${pc.fc.keyword }" id="keyword" placeholder="검색어를 입력하세요"> <button style = "padding-right:5px; padding-left:5px; background-color:#848484; color:white" id ="searchBtn">검색</button>
+        			<input type ="search"  name="keyword" value = "${pc.fc.keyword }" id="keyword" placeholder="검색어를 입력하세요"> <button type="button" data-category = "${category }" style = "padding-right:5px; padding-left:5px; background-color:#848484; color:white" id ="searchBtn" >검색</button>
         		</form>
         	</div>
         	<div id = "boardtitle" >
@@ -121,30 +124,18 @@
         	<c:forEach var = "rec" items="${list }">
         	<ul class = "list_freecontent">
         		<li class = "listcontent">
-	        		<div id ="no"><a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">${rec.bnum }</a></div>
-	        		<div id ="bcategory" class = "bcategorycon"><a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">${rec.boardCategoryVO.cname}</a></div>
+	        		<div id ="no"><a href = "${pageContext.request.contextPath}/board/view/${category}/${pc.rc.reqPage}/${rec.bnum }">${rec.bnum }</a></div>
+	        		<div id ="bcategory" class = "bcategorycon"><a href = "${pageContext.request.contextPath}/board/view/${category}/${pc.rc.reqPage}/${rec.bnum }">${rec.boardCategoryVO.cname}</a></div>
 	        		<div id ="btitle">
 	        			<c:forEach begin="1" end="${rec.bindent }">&nbsp;&nbsp;&nbsp;&nbsp;</c:forEach>
 										<c:if test="${rec.bindent > 0 }">
 										<i class="fas fa-reply" style = "color:#FFBF00; padding-right:10px;"></i>
 											<%-- <img src="${contextRoot }/resources/img/icon_reply.gif"/> --%>
 										</c:if>
-											
-	        			<c:choose>	
-									<c:when test= "${rec.boardCategoryVO.cname == '공지사항'}">  				
-			        		<a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }" style ="color:red;"><i class="fas fa-bullhorn"></i><span style = "padding-left:15px;">${rec.btitle }<c:if test="${rec.fid > 0 }"><i class="fas fa-paperclip" style="padding-left:10px;"></i></c:if><c:if test = "${rec.cnt > 0 }"><span style="padding-left:10px;">[${rec.cnt }]</span></c:if></a>			      
-			        		</c:when>
-			        		<c:when test= "${rec.boardCategoryVO.cname == '경기결과'}">			
-			        		<a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }"><span style = "padding-right:15px; color:#8181F7;" ><i class="fas fa-futbol"></i></span>${rec.btitle }<c:if test="${rec.fid > 0 }"><i class="fas fa-paperclip" style="padding-left:10px;"></i></c:if><c:if test = "${rec.cnt > 0 }"><span style="padding-left:10px;">[${rec.cnt }]</span></c:if></a>
-			        		</c:when>
-			        		<c:otherwise>		
-			        		<a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">${rec.btitle }<c:if test="${rec.fid > 0 }"><i class="fas fa-paperclip" style="padding-left:10px;"></i></c:if><c:if test = "${rec.cnt > 0 }"><span style="padding-left:10px;">[${rec.cnt }]</span></c:if></a>
-			        		</c:otherwise>
-	        			</c:choose>
-			      
+			        		<a href = "${pageContext.request.contextPath}/board/view/${category}/${pc.rc.reqPage}/${rec.bnum }">${rec.btitle }<c:if test="${rec.fid > 0 }"><i class="fas fa-paperclip" style="padding-left:10px;"></i></c:if><c:if test = "${rec.cnt > 0 }"><span style="padding-left:10px;">[${rec.cnt }]</span></c:if></a>	       			      
 	        		</div>
 	        		
-	        		<div id ="bid"><a href = "${pageContext.request.contextPath}/board/view/${pc.rc.reqPage}/${rec.bnum }">${rec.bid}</a></div>        		
+	        		<div id ="bid"><a href = "${pageContext.request.contextPath}/board/view/${category}/${pc.rc.reqPage}/${rec.bnum }">${rec.bid}</a></div>        		
 	        		<div id ="bcdate"><fmt:formatDate value="${rec.bcdate }" pattern="yyyy-MM-dd"/></div>
 	        		<div id ="bhit">${rec.bhit}</div>	        		
         		</li>
@@ -157,28 +148,28 @@
         	 <div class="paging">
 						<!--  처음페이지 / 이전페이지 이동 -->
 						<c:if test="${pc.prev }" >
-        	 	<a href="${pageContext.request.contextPath }/board/list/1" id ="first"><i class="fas fa-angle-double-left"></i></a>
-        	 	<a href="${pageContext.request.contextPath }/board/list/${pc.startPage-1}/${pc.fc.searchType}/${pc.fc.keyword}" id ="previus"><i class="fas fa-angle-left"></i></a>
+        	 	<a href="${pageContext.request.contextPath }/board/list/${category}/1" id ="first"><i class="fas fa-angle-double-left"></i></a>
+        	 	<a href="${pageContext.request.contextPath }/board/list/${category}/${pc.startPage-1}/${pc.fc.searchType}/${pc.fc.keyword}" id ="previus"><i class="fas fa-angle-left"></i></a>
         	 	</c:if>
         	 	<c:forEach var="pageNum" begin="${pc.startPage }" end="${pc.endPage }">
         		<!-- 현재페이지와 요청페이지가 다르면 -->
 						<c:if test = "${pc.rc.reqPage != pageNum }">					
-        		<a class="select" href="${pageContext.request.contextPath }/board/list/${pageNum}/${pc.fc.searchType}/${pc.fc.keyword}">${pageNum }</a>
+        		<a class="select" href="${pageContext.request.contextPath }/board/list/${category}/${pageNum}/${pc.fc.searchType}/${pc.fc.keyword}">${pageNum }</a>
 						</c:if>
 						<!-- 현재페이지와 요청페이지가 같으면 -->
 						<c:if test = "${pc.rc.reqPage == pageNum }">
-						<a class="select" style = "background-color:#FA5882;" href="${pageContext.request.contextPath }/board/list/${pageNum}/${pc.fc.searchType}/${pc.fc.keyword}">${pageNum }</a>
+						<a class="select" style = "background-color:#FA5882;" href="${pageContext.request.contextPath }/board/list/${category}/${pageNum}/${pc.fc.searchType}/${pc.fc.keyword}">${pageNum }</a>
 						</c:if>
         		</c:forEach> 		
         	<!-- 다음페이지 / 최종페이지 이동  -->
         	<c:if test="${pc.next }">
-        		<a href="${pageContext.request.contextPath }/board/list/${pc.endPage+1}/${pc.fc.searchType}/${pc.fc.keyword}" id ="previus"><i class="fas fa-angle-right"></i></a>
-        		<a href="${pageContext.request.contextPath }/board/list/${pc.finalEndPage}" id ="first"><i class="fas fa-angle-double-right"></i></a>
+        		<a href="${pageContext.request.contextPath }/board/list/${category}/${pc.endPage+1}/${pc.fc.searchType}/${pc.fc.keyword}" id ="previus"><i class="fas fa-angle-right"></i></a>
+        		<a href="${pageContext.request.contextPath }/board/list/${category}/${pc.finalEndPage}" id ="first"><i class="fas fa-angle-double-right"></i></a>
     			</c:if>
     			</div>
         	<div id = "writebutton">
         		<%-- <a href="<c:url value='/board/writeForm'/>">글쓰기</a> --%>
-        		<button style="padding:5px; color:white; background-color:#A4A4A4;" id="writeBtn" data-returnPage="${pc.rc.reqPage }">글쓰기</button>
+        		<button style="padding:5px; color:white; background-color:#A4A4A4;" id="writeBtn" data-category="${category }" data-returnPage="${pc.rc.reqPage }">글쓰기</button>
         	</div>
    			</div>
    	  			

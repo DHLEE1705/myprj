@@ -1,5 +1,5 @@
 package com.kh.portfolio.board4.vo;
-
+/*매치등록, 매치 게시판*/
 import java.sql.Date;
 import java.sql.Timestamp;
 

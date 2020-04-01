@@ -25,7 +25,7 @@
 		let rereply_str = "";
 		rereply_str = '<div class="row">';
 		rereply_str = '<textarea name="rcontent" id="rcontent" rows="3"></textarea>';
-		rereply_str = '<button id="rereplyBtn">등록</button>';
+		rereply_str = '<button type = "button" id="rereplyBtn">등록</button>';
 		rereply_str = '</div>';
 		// 대댓글 작성 html코드 끝----------------------------------
 		
@@ -123,6 +123,7 @@
 					 					
 					row_2.addEventListener("click",function(){
 						//대댓글 수정 처리하기
+						
 						doModify(data_rnum,row_1.value);
 					},false);
 					replyListTag.insertBefore(rreplyModifyForm,rnumTag.nextElementSibling);
@@ -166,15 +167,22 @@
 					let rreplyForm = elt("div",{class:"row rreply"},row_1,row_2);
 					 	
 					row_2.addEventListener("click",function(){
+						if(l_id == ""){
+							alert('로그인후 입력바랍니다.!');
+						}
 						//대댓글 등록 처리하기
-						doReply(data_rnum,row_1.value);
-					},false);
+						else{			
+							doReply(data_rnum,row_1.value);						
+						}
+							},false);
 					
 					replyListTag.insertBefore(rreplyForm,rnumTag.nextElementSibling);
 					replyListTag.getElementsByClassName("rrcontent")[0].placeholder
 						= rnumTag.getElementsByClassName("rname")[0].textContent+"님께 답글쓰기";
+				}else if(
+							
 
-				}else if(e.target.classList.contains('rereplyCancelBtn')){
+						e.target.classList.contains('rereplyCancelBtn')){
 	
 					//1) 아이콘 토글
 					console.log('댓글버튼 클릭됨'+data_rnum);
@@ -221,7 +229,7 @@
 		}
 		//대댓글 등록
 		function doReply(i_rnum,i_rcontent){
-
+			
 			let url = l_url+"/reply";
 			let xhttp = new XMLHttpRequest();
 			xhttp.addEventListener("readystatechange",function(){
@@ -230,6 +238,7 @@
 					if(this.responseText == 'success'){
 						replyList(l_page);
 					}else{
+						
 						console.log('대댓글 작성 오류!!');
 					}
 				}
@@ -354,7 +363,12 @@
 						}else{
 							str += '  <div class="row pw-10 lm-7">';
 						}
-						str += '    <div class="col fw-7"><img id="img" src="<c:url value='/resources/img/player2.png'/>" alt="사진" width="60px;" height="70px;"/></div>';
+						if(e.fdata == null){
+							str += '    <div class="col fw-7"><img src="<c:url value='/resources/img/익명.png'/>" id="img" alt="사진" width="60px" height="70px"/></div>';
+						}
+						else{
+						 str += '    <div class="col fw-7"><img src="data:'+e.fname+';base64,'+e.fdata+'" id="img" alt="사진" width="60px" height="70px"/></div>'; 
+						}
 						str += '    <div class="col pw-10" id="pw-10top">';
 						str += '      <div class="row header pw-10">';
 						str += '        <div class="col fw-15" id="fwname">';

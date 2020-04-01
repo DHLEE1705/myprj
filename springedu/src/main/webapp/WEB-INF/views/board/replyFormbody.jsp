@@ -28,7 +28,8 @@
 		listBtn.addEventListener("click", function(e){
 			e.preventDefault();
 			let returnPage = e.target.getAttribute('data-returnPage');
-			location.href=getContextPath()+"/board/list/"+returnPage;
+			/* 	let category = e.target.getAttribute('data-category'); */
+			location.href=getContextPath()+"/board/list/"+"${boardVO.boardCategoryVO.cname}/" + returnPage;
 			},false);
 		}
  </script>
@@ -69,7 +70,9 @@
                     <li>
                         <a href="#">커뮤니티</a>
                         <ul>
-                            <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                             <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                             
                             
                         </ul>
@@ -78,7 +81,7 @@
             </div>
         </div>
        <div id = "writeboardwrap">
-       <form:form action = "${pageContext.request.contextPath }/board/reply/${returnPage }" 
+       <form:form action = "${pageContext.request.contextPath }/board/reply/${category}/${returnPage }" 
         						 enctype = "multipart/form-data"
         						 method = "post" 
         						 modelAttribute="boardVO">
@@ -143,7 +146,7 @@
 			 <div id = "bottom">
 				<div id = "register"><form:button class="btn" id="writeBtn" style = "background-color:#A4A4A4; color:#FFFFFF; font-size:16px; padding:5px;">등록</form:button></div>
 				<div id = "cancel"><input type="reset" class="btn" id="cancelBtn" value = "취소" style = "background-color:#A4A4A4; color:#FFFFFF; font-size:16px; padding:5px;"/></div>
-				<div id = "list"><form:button class="btn" id="listBtn" style = "background-color:#A4A4A4; color:#FFFFFF; font-size:16px; padding:5px;">목록</form:button></div>			
+				<div id = "list"><form:button class="btn" id="listBtn"  data-returnPage="${returnPage }" style = "background-color:#A4A4A4; color:#FFFFFF; font-size:16px; padding:5px;">목록</form:button></div>			
 			 </div>
 			 
 			 </div>

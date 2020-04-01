@@ -1,5 +1,7 @@
 package com.kh.portfolio.board2.dao;
-
+/*
+ * 용병모집
+ */
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;

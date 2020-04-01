@@ -1,5 +1,7 @@
 package com.kh.portfolio.board3.dao;
-
+/*
+ * 용병 신청
+ */
 import java.util.List;
 
 import com.kh.portfolio.board.vo.BoardCategoryVO;

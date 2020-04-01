@@ -66,7 +66,7 @@ public class MemberDAOImplXML implements MemberDAO {
 		return sqlSession.delete("mappers.MemberDAO-mapper.outMember", map);
 	}
 	
-//사진 삭제
+	//사진 삭제
 	@Override
 	public int fileDelete(String id) {
 		return sqlSession.delete("mappers.MemberDAO-mapper.fileDelete",id);

@@ -1,5 +1,7 @@
 package com.kh.portfolio.board3.svc;
-
+/*
+ * 용병신청
+ */
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,7 @@
 package com.kh.portfolio.board.svc;
+/*
+ * 커뮤니티 게시판
+ */
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -125,8 +128,8 @@ public class BoardSVCImpl implements BoardSVC {
 	//경기결과 게시글목록
 	//1)전체
 	@Override
-	public List<BoardVO> list() {
-		return boardDAO.list();
+	public List<BoardVO> list(String category) {
+		return boardDAO.list(category);
 	}
 	//2)검색어 없는 게시글페이징
 	@Override
@@ -136,7 +139,7 @@ public class BoardSVCImpl implements BoardSVC {
 	}
 	//3)검색어 있는 게시글검색(요청페이지,검색유형,검색어)
 	@Override
-	public List<BoardVO> list(String reqPage, String searchType, String keyword) {	
+	public List<BoardVO> list(String category, String reqPage, String searchType, String keyword) {	
 		 
 		int l_reqPage = 0;
 		
@@ -150,6 +153,7 @@ public class BoardSVCImpl implements BoardSVC {
 		RecordCriteria recordCriteria = new RecordCriteria(l_reqPage);
 		
 		return boardDAO.list(
+				category,
 				recordCriteria.getStartRec(), 
 				recordCriteria.getEndRec(), 
 				searchType, keyword);
@@ -157,7 +161,7 @@ public class BoardSVCImpl implements BoardSVC {
 	
 	//페이지 제어
 	@Override
-	public PageCriteria getPageCriteria(String reqPage, String searchType, String keyword) {
+	public PageCriteria getPageCriteria(String category, String reqPage, String searchType, String keyword) {
 		
 		PageCriteria 		pc = null;					//한페이지에 보여줄 페이징 계산하는 클래스
 		FindCriteria 		fc = null;					//PageCriteira + 검색타입, 검색어		
@@ -173,11 +177,12 @@ public class BoardSVCImpl implements BoardSVC {
 			l_reqPage = Integer.parseInt(reqPage);
 		}
 			
-		totalRec = boardDAO.totalRecordCount(searchType,keyword);
+		totalRec = boardDAO.totalRecordCount(category, searchType,keyword);
 		
-		fc = new FindCriteria(l_reqPage, searchType, keyword);
+		fc = new FindCriteria(category, l_reqPage, searchType, keyword);
 		pc = new PageCriteria(fc, totalRec);
 		
+		logger.info("category = " + category);
 		logger.info("fc:"+fc.toString());
 		logger.info("rc:"+((RecordCriteria)fc).toString());
 		logger.info("pc:"+pc.toString());
@@ -210,6 +215,7 @@ public class BoardSVCImpl implements BoardSVC {
 
 
 }
+
 
 
 

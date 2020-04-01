@@ -38,18 +38,5 @@ function checkLogin() {
     }
     return flag;
     
-//    //2) 회원 존재유무체크
-    
-//        //메인 페이지로 이동
-//        document.location.href = "afterloginmain.html";
-//    }
-//    else {
-//        pwMsg.innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호 입니다.";
-//        pwMsg.style.color = "red";
-//        pwMsg.style.fontSize = '0.7rem';
-//        pwMsg.style.fontWeight = 'bold';
-//        pwMsg.focus();
-//        return;
-//    }
 
 }

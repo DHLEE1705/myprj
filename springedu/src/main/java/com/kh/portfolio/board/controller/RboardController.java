@@ -1,4 +1,7 @@
 package com.kh.portfolio.board.controller;
+/*
+ * 커뮤니티 게시판 댓글 컨트롤러
+ */
 
 import java.util.HashMap;
 import java.util.List;

@@ -3,17 +3,16 @@
 <mapper namespace="mappers.RboardDAO-mapper">
 
 <!-- 댓글 작성 -->
-<insert id="write"
-				parameterType="RboardVO">
-
-	INSERT INTO rboard (
+<insert id="write" parameterType="RboardVO">
+	INSERT INTO rboard(
 	  rnum,
 	  bnum,
 	  rid,
 	  rname,
 	  rcontent,
 	  rgroup
-	) VALUES (
+	) 
+	VALUES (
 	  rboard_rnum_seq.nextval,
 	  #{bnum},
 	  #{rid},
@@ -33,14 +32,16 @@
 		         x1.rcontent,
 		         x1.rgroup,       x1.rstep,        x1.rindent,
 		         x1.prnum,				x1.prid,				 x1.prname,
-	           nvl(x2.good,0) good,  nvl(x2.bad,0) bad
+	           nvl(x2.good,0) good,  nvl(x2.bad,0) bad,
+	           x1.fdata, x1.fname
 	from 
 		(select  rnum,         bnum,
 		         rid,          rname,
 		         rcdate,
 		         rcontent,
 		         rgroup,       rstep,        rindent,
-		         prnum,				 prid,				 prname
+		         prnum,				 prid,				 prname,
+		         fdata, fname
 		from(
 		  select row_number() over (order by rgroup desc, rstep asc) as  num, 
 		         t1.rnum,      t1.bnum,
@@ -48,9 +49,11 @@
 		         t1.rcdate,
 		         t1.rcontent,
 		         t1.rgroup,    t1.rstep,     t1.rindent,
-		         t1.prnum,		 t1.prid,			 t1.prname
-		    from rboard t1
+		         t1.prnum,		 t1.prid,			 t1.prname,
+		         t2.fdata, t2.fname
+		    from rboard t1, member t2
 		   where bnum = #{bnum}
+		   and t1.rid = t2.id
 		   )
 		where num between #{startRec} and #{endRec}
 	  ) x1, 
@@ -60,26 +63,6 @@
 	  group by rnum) x2
 	
 	where x1.rnum = x2.rnum(+)
-
-<!-- 	select   rnum,         bnum,
-	         rid,          rname,
-	         rcdate,
-	         rcontent,
-	         rgroup,       rstep,        rindent,
-	         prnum
-	from(
-	  select row_number() over (order by rgroup desc, rstep asc) as  num, 
-	         t1.rnum,      t1.bnum,
-	         t1.rid,       t1.rname,
-	         t1.rcdate,
-	         t1.rcontent,
-	         t1.rgroup,    t1.rstep,     t1.rindent,
-	         t1.prnum
-	    from rboard t1
-	   where bnum = #{bnum}
-	   )
-	where num between #{startRec} and #{endRec} -->
-	
 </select>
 	
 <!-- 댓글 수정 -->
@@ -194,8 +177,3 @@
 	select count(rnum) from rboard where bnum = #{bnum}
 </select>
 </mapper>
-
-
-
-
-

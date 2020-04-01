@@ -1,5 +1,7 @@
 package com.kh.portfolio.board.vo;
-
+/*
+ * 커뮤니티 게시판
+ */
 import lombok.Data;
 
 @Data

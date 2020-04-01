@@ -169,7 +169,9 @@ function isetime(asValue){
                     <li>
                         <a href="#">커뮤니티</a>
                         <ul>
-                            <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                            <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                             
                             
                         </ul>

@@ -81,7 +81,9 @@
               </li>
                 <li><a class="menuLink" href="#">커뮤니티</a>
                   <ul>
-                      <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                      <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                       
                       
                   </ul>
@@ -90,9 +92,13 @@
         </div>
     </div>
 </div>
+			
+			
 	  		<%-- <%=request.getRequestURL().toString().split("/")[7]%>  --%>
-  		  <%-- <%=	request.getRequestURI()%>  --%>
+  		 <%--  <%=	request.getRequestURI()%> --%>
+  		   
 <% if (request.getRequestURL().toString().split("/")[7].equals("joinForm.jsp")){ %>
+
 <div id="header2wrap">
     <div id="header2">
     
@@ -174,65 +180,6 @@
         <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
         <div id="fontmenu"><span id="fontlo">회원목록</span></div>
     </div>
-</div>																				
-<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views/board/list.jsp")){ %>
-	<div id="header2wrap">
-    <div id="header2">
-        <div id="fontwrap"><span id="loginfont">종합 게시판</span></div>
-    </div>
-</div>
-
-<div id="navmenuwrap">
-    <div id="navmenu">			
-        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
-        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
-        <div id="fontmenu"><span id="fontlo">종합 게시판</span></div>
-    </div>
-</div>
-
-<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//board/readForm.jsp")){ %>
-	<div id="header2wrap">
-    <div id="header2">
-        <div id="fontwrap"><span id="loginfont">종합 게시판</span></div>
-    </div>
-</div>
-
-<div id="navmenuwrap">
-    <div id="navmenu">			
-        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
-        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
-        <div id="fontmenu"><span id="fontlo">종합 게시판</span></div>
-    </div>
-</div>
-<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//board/replyForm.jsp")){ %>
-	<div id="header2wrap">
-    <div id="header2">
-        <div id="fontwrap"><span id="loginfont">종합 게시판</span></div>
-    </div>
-</div>
-
-<div id="navmenuwrap">
-    <div id="navmenu">			
-        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
-        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
-        <div id="fontmenu"><span id="fontlo">종합 게시판</span></div>
-    </div>
-</div>
-
-
-<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//board/writeForm.jsp")){ %>
-	<div id="header2wrap">
-    <div id="header2">
-        <div id="fontwrap"><span id="loginfont">종합 게시판</span></div>
-    </div>
-</div>
-
-<div id="navmenuwrap">
-    <div id="navmenu">			
-        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
-        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
-        <div id="fontmenu"><span id="fontlo">종합 게시판</span></div>
-    </div>
 </div>
 
 <% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//board/list2.jsp")){ %>
@@ -248,8 +195,7 @@
         <div id="fontmenu"><span id="fontlo1">매치 &nbsp;&nbsp;</span></div>
         <div id="fontmenu"><span id="fontlo">매치 등록</span></div>
     </div>
-</div>
-
+</div> 
 <% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views/board/list3.jsp")){ %>
 	<div id="header2wrap">
     <div id="header2">
@@ -349,9 +295,9 @@
     </div>
 </div>
 
-	
+							
 
-<% }else { %> 
+<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//member/loginForm.jsp")){ %> 
 <div id="header2wrap">
     <div id="header2">
         <div id="fontwrap"><span id="loginfont">로그인</span></div>
@@ -363,4 +309,64 @@
         <div id="fontmenu"><span id="fontlo">로그인</span></div>
     </div>
 </div>  
-<%} %>   
+
+<% }else if (request.getRequestURI().equals("/portfolio/WEB-INF/views//member/loginForm.jsp")){ %> 
+<div id="header2wrap">
+    <div id="header2">
+        <div id="fontwrap"><span id="loginfont">로그인</span></div>
+    </div>
+</div>
+<div id="navmenuwrap">					
+    <div id="navmenu">						
+        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
+        <div id="fontmenu"><span id="fontlo">로그인</span></div>
+    </div>
+</div>  
+<%} %>
+ <c:choose>  
+  	<c:when test="${category eq 'NOTICE'}">
+	<div id="header2wrap">
+    <div id="header2">
+        <div id="fontwrap"><span id="loginfont">공지 사항</span></div>
+    </div>
+</div>
+
+<div id="navmenuwrap">
+    <div id="navmenu">			
+        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
+        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
+        <div id="fontmenu"><span id="fontlo">공지 사항</span></div>
+    </div>
+</div>
+</c:when>
+<c:when test="${category eq 'RESULT'}">
+	<div id="header2wrap">
+    <div id="header2">
+        <div id="fontwrap"><span id="loginfont">경기 결과</span></div>
+    </div>
+</div>
+
+<div id="navmenuwrap">
+    <div id="navmenu">			
+        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
+        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
+        <div id="fontmenu"><span id="fontlo">경기 결과</span></div>
+    </div>
+</div>
+</c:when>  
+<c:when test="${category eq 'BLACKLIST'}">
+	<div id="header2wrap">
+    <div id="header2">
+        <div id="fontwrap"><span id="loginfont">블랙리스트</span></div>
+    </div>
+</div>
+
+<div id="navmenuwrap">
+    <div id="navmenu">			
+        <div id="homemenu"><a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/home.png'/>"></a></div>
+        <div id="fontmenu"><span id="fontlo1">커뮤니티 &nbsp;&nbsp;</span></div>
+        <div id="fontmenu"><span id="fontlo">블랙리스트</span></div>
+    </div>
+</div>
+</c:when>
+ </c:choose>

@@ -23,9 +23,10 @@
 				e.preventDefault();
 				console.log("답글");
 				console.log(getContextPath());
-				let returnPage = e.target.getAttribute('data-returnPage');				
+				let returnPage = e.target.getAttribute('data-returnPage');			
  				let bnum = e.target.getAttribute('data-bnum');
-				location.href = getContextPath()+"/board/replyForm/"+returnPage+"/"+bnum;
+ 				let category = e.target.getAttribute('data-category');
+				location.href = getContextPath()+"/board/replyForm/"+category+ "/" + returnPage+"/"+bnum;
 			},false);
 			
       //수정
@@ -46,8 +47,9 @@
 					if(confirm("삭제하시겠습니까?")){
 						let returnPage = e.target.getAttribute('data-returnPage');
 	 	 				let bnum = e.target.getAttribute('data-bnum');
-						location.href = getContextPath()+"/board/delete/"+returnPage+"/"+bnum;
-					}
+	 	 				location.href = getContextPath() + "/board/delete/" +"${boardVO.boardCategoryVO.cname}/" 
+						+ returnPage + "/" + bnum;
+							}
 				},false);
       }
       //취소(수정모드->읽기모드)
@@ -70,7 +72,8 @@
 				e.preventDefault();
 				console.log("목록");
 				let returnPage = e.target.getAttribute('data-returnPage');
-				location.href=getContextPath()+"/board/list/"+returnPage;
+				let category = e.target.getAttribute('data-category');	
+				location.href=getContextPath()+"/board/list/"+category +"/"+ returnPage;
 			},false);     
 
 			//첨부파일 1건 삭제 : Ajax로 구현함.
@@ -178,7 +181,9 @@
                     <li>
                         <a href="#">커뮤니티</a>
                         <ul>
-                            <li><a href="<c:url value='/board/list'/>">종합게시판</a></li>
+                             <li><a href="<c:url value='/board/list/NOTICE'/>">공지사항</a></li>
+                      <li><a href="<c:url value='/board/list/RESULT'/>">경기결과</a></li>
+                      <li><a href="<c:url value='/board/list/BLACKLIST'/>">블랙리스트</a></li>
                             
                             
                         </ul>
@@ -187,7 +192,7 @@
             </div>
         </div>
     <!--  <div id = "readboardwrap"> -->
-     <form:form action="${pageContext.request.contextPath }/board/modify/${returnPage }" 
+     <form:form action="${pageContext.request.contextPath }/board/modify/${category}/${returnPage }" 
 					    					 enctype="multipart/form-data"
 					    					 method="post"
 					    					 modelAttribute="boardVO">
@@ -265,14 +270,15 @@
 				</div>
 				
 				</div>						       	
-
+	 
+	<c:if test = "${!empty returnPage }">
         <div id = "newcontent" class="row">
         	<div id = "modify" class="row btns">
-        				<form:button class="btn rmode" id="replyBtn" data-returnPage = "${returnPage }"  data-bnum ="${boardVO.bnum }">답글</form:button>
+        				<form:button class="btn rmode" id="replyBtn" data-returnPage = "${returnPage }"  data-category = "${category }" data-bnum ="${boardVO.bnum }">답글</form:button>
 					        <!-- 작성자만 수정, 삭제 가능 -->
 					        <c:if test="${sessionScope.member.id == boardVO.bid }">
 					        <form:button class="btn rmode" id="modifyBtn">수정</form:button>
-					        <form:button class="btn umode" id="deleteBtn" data-returnPage = "${returnPage }" data-bnum ="${boardVO.bnum }">삭제</form:button>
+					        <form:button class="btn umode" id="deleteBtn" data-returnPage = "${returnPage }"  data-category = "${category }" data-bnum ="${boardVO.bnum }">삭제</form:button>
 					        </c:if>
 					        <!-- 작성자만 수정, 삭제 가능 끝 -->
 					        
@@ -283,10 +289,11 @@
         	<a href="<c:url value='/board/writeForm'/>">글쓰기</a>
         	</div> --%>
         	<div id = "listview">
-        		<form:button class="btn" id="listBtn" data-returnPage="${returnPage }" style="padding:10px; background-color:#A4A4A4; color:white;">목록</form:button>
+        		<form:button class="btn" id="listBtn" data-returnPage="${returnPage }" data-category = "${category }" style="padding:10px; background-color:#A4A4A4; color:white;">목록</form:button>
         		<%-- <a href="<c:url value='/board/list'/>" style="margin-left:3px;">목록 보기</a> --%>
         	</div>
        </div>
+      </c:if>
 		 </form:form>
    </nav> 
   </div> 

@@ -1,5 +1,5 @@
 package com.kh.portfolio.board4.controller;
-
+/*매치게시판 댓글관리 컨트롤러*/
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

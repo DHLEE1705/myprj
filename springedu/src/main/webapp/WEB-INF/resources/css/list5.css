@@ -9,6 +9,9 @@
     font-family: 'Noto Sans KR', sans-serif;
 
 }
+select, input[type=time],input[type=date] {
+	background-color:white;
+}
 
 
 body{

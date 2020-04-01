@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.portfolio.member.svc.MemberSVC;
 import com.kh.portfolio.member.vo.MemberVO;
 
-@Controller//Presentation Layer에서 Contoller를 명시하기 위해서 사용
+@Controller
 public class LoginController {
 
 	private static final Logger logger = 
@@ -25,7 +25,6 @@ public class LoginController {
 	MemberSVC memberSVC;
 	
 	//로그인 양식
-	//@RequestMapping(value="/login", method=RequestMethod.GET)
 	@GetMapping("/loginForm")
 	public String login( @RequestParam(value = "reqURI", required=false) String reqURI, 
 			Model model) {
@@ -57,7 +56,6 @@ public class LoginController {
 		//1)회원이 없는 경우
 		if(memberVO == null) {
 			model.addAttribute("svr_msg", "가입된 회원정보가 없습니다.");
-//			throw new BizException("가입된 회원정보가 없습니다.");
 		}
 		else {
 		//2) 회원이 있는경우

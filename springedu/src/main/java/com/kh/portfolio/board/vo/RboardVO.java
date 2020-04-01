@@ -1,5 +1,7 @@
 package com.kh.portfolio.board.vo;
-
+/*
+ * 커뮤니티 게시판
+ */
 import java.sql.Timestamp;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -28,9 +30,8 @@ public class RboardVO {
 	private String prname;		//prname 부모댓글별칭	
 	
 	private MultipartFile file;
-	private byte[] rfdata;					//첨부파일
-	private String rfname;					
-	private long rfsize;
+	private byte[] fdata;					//첨부파일
+	private String fname;	
 	//선호도조사
 	private int good;							//선호
 	private int bad;							//비선호

@@ -1,7 +1,5 @@
 package com.kh.portfolio.common;
 
-import org.springframework.stereotype.Component;
-
 /*
  * 페이징에서 요청페이지를 입력받아 시작레코드와 종료레코드를 구하는 클래스
  */

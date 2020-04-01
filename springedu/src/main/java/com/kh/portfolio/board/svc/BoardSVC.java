@@ -1,4 +1,7 @@
 package com.kh.portfolio.board.svc;
+/*
+ * 커뮤니티 게시판
+ */
 
 import java.util.List;
 import java.util.Map;
@@ -29,14 +32,14 @@ public interface BoardSVC {
 
 	//게시글목록
 	//1)전체
-	List<BoardVO> list();
+	List<BoardVO> list(String category);
 	//2)검색어 없는 게시글페이징
 	List<BoardVO> list( int startRec, int endRec);	
 	//3)검색어 있는 게시글검색(요청페이지, 검색유형, 검색어)
-	List<BoardVO> list(String reqPage, String searchType,String keyword);
+	List<BoardVO> list(String category, String reqPage, String searchType,String keyword);
 	
 	//페이지 제어
-	PageCriteria getPageCriteria(String reqPage, String searchType,String keyword);
+	PageCriteria getPageCriteria(String category, String reqPage, String searchType,String keyword);
 		
 	//게시글답글작성
 	int reply(BoardVO boardVO);

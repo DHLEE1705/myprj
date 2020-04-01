@@ -286,6 +286,7 @@ input[id="tab04"]:checked~.con4 {
 
 #footerwrap{
     background-color:  #F8F8F8;
+    margin-top:60px;
     opacity: 0.8;
 }
 footer {
@@ -501,6 +502,8 @@ input[id="menuicon"]:checked+label+div {
 }
 
 #newcontent{
+
+	padding-bottom:100px;
 	margin-top:8px;
 }
 #modify{

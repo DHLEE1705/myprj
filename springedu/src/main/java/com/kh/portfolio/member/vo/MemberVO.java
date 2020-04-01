@@ -23,8 +23,13 @@ public class MemberVO {
   @Size(min = 10, max = 40, message = "아이디는 40글자 미만으로 입력하세요")
 	private String id;
 	
-	@NotNull
-	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,15}$", message = "비밀번호는 특수문자,영문, 숫자 포함 6~15자리로 입력바랍니다.")
+	/*
+	 * @NotNull
+	 * 
+	 * @Pattern(regexp =
+	 * "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,15}$",
+	 * message = "비밀번호를 입력해주세요")
+	 */
 	private String pw;
 	
  @NotNull
@@ -41,9 +46,6 @@ public class MemberVO {
   @NotNull
 	@Pattern(regexp = "^[^0]+$", message = "지역을 선택하세요!")
 	private String region;
-	
-
-	/* @JsonFormat(pattern = "yyyy-MM-dd") */
 	private Date birth;
 	private Timestamp cdate;
 	private Timestamp udate;

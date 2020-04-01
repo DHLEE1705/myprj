@@ -1,5 +1,7 @@
 package com.kh.portfolio.board3.vo;
-
+/*
+ * 용병신청
+ */
 import java.sql.Date;
 import java.sql.Timestamp;
 

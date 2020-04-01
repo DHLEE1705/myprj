@@ -1,5 +1,9 @@
 package com.kh.portfolio.board.dao;
 
+/*
+ * 커뮤니티 게시판
+ */
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,14 +12,19 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.kh.portfolio.board.controller.RboardController;
 import com.kh.portfolio.board.vo.BoardCategoryVO;
 import com.kh.portfolio.board.vo.BoardFileVO;
 import com.kh.portfolio.board.vo.BoardVO;
 
 @Repository
 public class BoardDAOImplXML implements BoardDAO {
+	private static Logger logger 
+	= LoggerFactory.getLogger(BoardDAOImplXML.class);
 	
 	@Inject
 	SqlSessionTemplate sqlSession;
@@ -77,8 +86,8 @@ public class BoardDAOImplXML implements BoardDAO {
 	//경기결과 게시글목록
 	//1)전체
 	@Override
-	public List<BoardVO> list() {
-		return sqlSession.selectList("mappers.BoardDAO-mapper.list");
+	public List<BoardVO> list(String category) {
+		return sqlSession.selectList("mappers.BoardDAO-mapper.list", category);
 	}
 	//2)검색어 없는 게시글페이징
 	@Override
@@ -90,23 +99,30 @@ public class BoardDAOImplXML implements BoardDAO {
 	}
 //3)검색어 있는 게시글검색(전체,제목,내용,작성자ID,별칭)
 	@Override
-	public List<BoardVO> list(int startRec, int endRec, String searchType, String keyword) {
+	public List<BoardVO> list(String category, int startRec, int endRec, String searchType, String keyword) {
 		Map<String,Object> map = new HashMap<>();
+		map.put("category", category);
 		map.put("startRec", startRec);
 		map.put("endRec", endRec);
 		map.put("searchType",searchType);
 		if(keyword != null) {
 			map.put("list",Arrays.asList(keyword.split("\\s+")));
 		}
+
+		logger.info("map = " + map);
 		return sqlSession.selectList("mappers.BoardDAO-mapper.list3", map);
 	}
 	
 	//총 레코드수
 	@Override
-	public int totalRecordCount(String searchType, String keyword) {
+	public int totalRecordCount(String category,String searchType, String keyword) {
 		Map<String,Object> map = new HashMap<>();
+		map.put("category", category);
 		map.put("searchType",searchType);
 		map.put("keyword",keyword);
+		if(keyword != null) {
+			map.put("list",Arrays.asList(keyword.split("\\s+")));
+		}
 		return sqlSession.selectOne("mappers.BoardDAO-mapper.totalRecordCount",map);
 	}
 	

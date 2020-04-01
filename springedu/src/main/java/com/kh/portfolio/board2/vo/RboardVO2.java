@@ -1,4 +1,7 @@
 package com.kh.portfolio.board2.vo;
+/*
+ * 용병모집
+ */
 
 import java.sql.Timestamp;
 
@@ -28,8 +31,7 @@ public class RboardVO2 {
 	private String prname;		//prname 부모댓글별칭	
 	
 	private MultipartFile file;
-	private byte[] rfdata;					//첨부파일
-	private String rfname;					
-	private long rfsize;
+	private byte[] fdata;					//첨부파일
+	private String fname;	
 	
 }

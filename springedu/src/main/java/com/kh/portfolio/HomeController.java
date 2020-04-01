@@ -18,20 +18,12 @@ import com.kh.portfolio.board3.svc.BoardSVC3;
 import com.kh.portfolio.board4.svc.BoardSVC4;
 import com.kh.portfolio.member.vo.MemberVO;
 
-/**
- * Handles requests for the application home page.
- */
 
 @Controller
-
-
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@Inject
 	BoardSVC boardSVC;
 	
@@ -40,33 +32,21 @@ public class HomeController {
 	
 	@Inject
 	BoardSVC4 boardSVC4;
-
-	//@RequestMapping("/")
-	@GetMapping({ "/", "/list", "/list/{reqPage}", "/list/{reqPage}/{searchType}/{keyword}" })
-	public String home(@PathVariable(required = false) String reqPage, @PathVariable(required = false) String searchType,
-			@PathVariable(required = false) String keyword, HttpSession session, Locale locale, 
+	
+	@GetMapping({ "/", "/list"})
+	public String home(
+			HttpSession session, Locale locale, 
 			@RequestParam(value = "reqURI", required=false) String reqURI,
 			Model model) {
-//		logger.info("Welcome home! The client locale is {}.", locale);
-//		Date date = new Date();
-//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-//		String formattedDate = dateFormat.format(date);	
-//		model.addAttribute("serverTime", formattedDate );
-//		return "home"; // == > /WEB-INF/views/home.jsp
 		
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		 
-		// 게시글 목록
-		model.addAttribute("list", boardSVC.list(reqPage, searchType, keyword));
-		// 페이지 제어
-		model.addAttribute("pc", boardSVC.getPageCriteria(reqPage, searchType, keyword));
-		
+		model.addAttribute("NOTICE", boardSVC.list("NOTICE"));
+		model.addAttribute("RESULT", boardSVC.list("RESULT"));
+		model.addAttribute("BLACK", boardSVC.list("BLACKLIST"));
 		model.addAttribute("list2", boardSVC3.list());
-		
 		model.addAttribute("list3", boardSVC4.list());
-		
-		
-		
+				
 		logger.info("메인컨트롤러reqURI:" + reqURI); logger.info("maincontroller");
 	 
 	 if(reqURI == null) { 
@@ -80,5 +60,12 @@ public class HomeController {
 	public String rereplyForm() {
 		return "/board/rereply";
 	}
+	
+	/*
+	 * @GetMapping("/sse/stock") public String stock() { return "/sse/stock"; }
+	 * 
+	 * @GetMapping("/sse/stockServer") public String stockServer() { return
+	 * "/sse/stockServer"; }
+	 */
 	
 }

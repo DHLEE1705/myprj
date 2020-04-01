@@ -566,6 +566,10 @@ input[id="menuicon"]:checked+label+div {
 	
 }
 
+select, input[type=time],input[type=date] {
+	background-color:white;
+}
+
 .selectc{
 	height:30px;
 	width:210px;

@@ -1,4 +1,7 @@
 package com.kh.portfolio.board2.svc;
+/*
+ * 용병모집
+ */
 
 import java.util.HashMap;
 import java.util.List;

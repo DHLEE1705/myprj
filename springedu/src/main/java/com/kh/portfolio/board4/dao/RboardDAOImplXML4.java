@@ -1,5 +1,5 @@
 package com.kh.portfolio.board4.dao;
-
+/*매치등록, 매치 게시판*/
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,6 +1,5 @@
-package com.kh.portfolio.board;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+package com.kh.portfolio.board;
 
 import java.util.List;
 
@@ -17,44 +16,39 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.kh.portfolio.board.dao.BoardDAO;
 import com.kh.portfolio.board.vo.BoardVO;
 import com.kh.portfolio.common.RecordCriteria;
-import com.kh.portfolio.member.dao.MemberDAOImplXMLTest;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
+
+@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
 public class BoardDAOImplXMLTest {
-	private final static Logger logger = LoggerFactory.getLogger(MemberDAOImplXMLTest.class);
-	
+	private final static Logger logger = LoggerFactory.getLogger(BoardDAOImplXMLTest.class);
+
 	@Inject
-		BoardDAO boardDAO;
-	
-	@Inject
-	RecordCriteria recordCriteria;
-	
-	@Test
-  @Named("게시글 목록")
-	public void list() {
-		List<BoardVO> list = boardDAO.list();
-		assertNotNull(list);
-		logger.info(list.toString());
-	}
-	
-	//게시글 목록(페이지, 검색어 추가)
+	BoardDAO boardDAO;
+
+//	@Inject
+	/* RecordCriteria recordCriteria = new RecordCriteria(); */
+
+
+
+	// 게시글 목록(페이지, 검색어 추가)
+
 	@Test
 	@Named("게시글목록(페이징)")
 	public void list3() {
-		
+
 		int reqPage = 1;
-		
-		/* RecordCriteria recordCriteria = new RecordCriteria(reqPage); */
+
+		RecordCriteria recordCriteria = new RecordCriteria(reqPage);
 		recordCriteria.setReqPage(reqPage);
-		logger.info(""+recordCriteria.getStartRec());
-		logger.info(""+recordCriteria.getEndRec());
-		List<BoardVO> list = boardDAO.list(recordCriteria.getStartRec(),
-																			 recordCriteria.getEndRec(),
-																			 "TC", "고구마");
+		logger.info("" + recordCriteria.getStartRec());
+		logger.info("" + recordCriteria.getEndRec());
+	
+//		List<BoardVO> list = boardDAO.list("NOTICE" , recordCriteria.getStartRec(), recordCriteria.getEndRec(), "TC", "ㄹㄹ");
+		List<BoardVO> list = boardDAO.list("NOTICE" , recordCriteria.getStartRec(), recordCriteria.getEndRec(), "A", "ㄹㄹ");
 		logger.info("검색결과:" + list.size());
-		for(BoardVO boardVO : list) {
-			logger.info(list.toString());
+		for (BoardVO boardVO : list) {
+			logger.info(boardVO.toString());
 		}
 	}
 }

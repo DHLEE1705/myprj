@@ -1,5 +1,7 @@
 package com.kh.portfolio.board2.vo;
-
+/*
+ * 용병모집
+ */
 import java.sql.Date;
 import java.sql.Timestamp;
 
