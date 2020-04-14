@@ -52,5 +52,8 @@
  - RBOARD3 : BOARD4 테이블의 댓글을 관리하는 테이블
  총 11개의 테이블로 구성 되어있습니다.
  
+## 주요 테이블 ERD
+
+![K-002](https://user-images.githubusercontent.com/59239079/79252639-ee964b80-7ebc-11ea-959c-1507a2d3585b.png)
 ## Demo
 - [실행 영상](https://www.youtube.com/watch?v=BUMVqDi9BEk)
