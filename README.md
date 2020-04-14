@@ -58,6 +58,9 @@
 
 ## 아키텍처 설계
 
+![K-001](https://user-images.githubusercontent.com/59239079/79252783-21404400-7ebd-11ea-94d8-be5c085e7f40.png)
+
+
 
 ## Demo
 - [실행 영상](https://www.youtube.com/watch?v=BUMVqDi9BEk)
