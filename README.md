@@ -55,5 +55,9 @@
 ## 주요 테이블 ERD
 
 ![K-002](https://user-images.githubusercontent.com/59239079/79252639-ee964b80-7ebc-11ea-959c-1507a2d3585b.png)
+
+## 아키텍처 설계
+
+
 ## Demo
 - [실행 영상](https://www.youtube.com/watch?v=BUMVqDi9BEk)
