@@ -57,7 +57,7 @@
 ![K-002](https://user-images.githubusercontent.com/59239079/79252639-ee964b80-7ebc-11ea-959c-1507a2d3585b.png)
 
 ## 아키텍처 설계
-
+-- 풋살 매칭 사이트 HELLO FOOT BALL의 전체 아키텍처 설계도 입니다.
 ![K-001](https://user-images.githubusercontent.com/59239079/79252783-21404400-7ebd-11ea-94d8-be5c085e7f40.png)
 
 
