@@ -50,9 +50,9 @@
  - RBOARD : BOARD 테이블의 댓글을 관리하는 테이블
  - RBOARD2 : BOARD2 테이블의 댓글을 관리하는 테이블
  - RBOARD3 : BOARD4 테이블의 댓글을 관리하는 테이블
- 총 11개의 테이블로 구성 되어있습니다.
  
 ## 주요 테이블 ERD
+- 주요 테이블 간의 관계를 표시해보았습니다.
 
 ![K-002](https://user-images.githubusercontent.com/59239079/79252639-ee964b80-7ebc-11ea-959c-1507a2d3585b.png)
 
