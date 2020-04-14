@@ -16,7 +16,7 @@
     - Restful API
     
 - Front End
-    -Ajax
-    -javascript
-    -html
-    -css
+    - Ajax
+    - javascript
+    - html
+    - css
