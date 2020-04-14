@@ -1,0 +1,393 @@
+
+* {
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Do Hyeon', sans-serif;
+}
+body{
+    overflow-x:hidden; overflow-y: auto;
+}
+a{
+    font-family: 'Do Hyeon', sans-serif;
+}
+#header{ 
+    height:702px;
+    background-image: url('../img/헤더사진3.png');
+}
+#middle{
+    height:400px;
+}
+#bottom{
+    background-color:#F2F2F2;
+    opacity:0.8;
+    height:900px;
+}
+#bottom2{
+    height:1300px;
+    /* background-color:#CEECF5; */
+}
+#bottom3{
+    background-color:#F2F2F2;
+    height:400px;
+}
+#tapMenu{
+    z-index: 1;
+    position:fixed;
+    right:0px;
+    background-color:black;
+    opacity: 0.6;
+    width:780px;
+    border-radius:15px;
+}
+.tap{
+    float:left;
+    font-size:20px;
+    padding:55px;
+    padding-bottom:15px;
+    padding-top:15px;
+}
+.tap a{
+    font-weight:bold;
+    color:white;
+}
+#intro{
+    float:left;
+}
+#skills{
+    margin-left:10px;
+}
+#project{
+    margin-left:10px;
+    float:left;
+}
+#contact{ 
+    margin-left:10px;
+    float:left;
+}
+#intro2{
+    clear:both;
+    position:relative;
+    top:270px;
+    text-align:center;
+}
+#welcome{
+    color:#E6E6E6;
+    font-weight:bold;
+    font-size:70px;
+}
+
+#blog{
+    color:#E6E6E6;
+    font-weight:bold;
+    font-size:60px;   
+}
+
+.typing-txt{
+    display: none;}
+ul{
+    list-style:none;}
+.typing ul li{
+  display:block;
+}
+.typing ul li.on {  
+  display: inline-block; 
+  animation-name: cursor; 
+  animation-duration: 1.0s; 
+  animation-iteration-count: infinite; 
+} 
+@keyframes cursor{ 
+  0%{border-right: 1px solid #fff} 
+  50%{border-right: 1px solid #000} 
+  100%{border-right: 1px solid #fff} 
+}
+#introducediv{
+   position:relative;
+   top:50px;
+   text-align:center;
+}
+#p1{ 
+    color:#5882FA;
+    font-size:40px;
+  
+}
+#p2{
+    margin:0 auto;
+    color:#2E2E2E;
+    width:1000px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:20px;
+}
+#title{
+    position:relative;
+    top:40px;
+    font-size:50px;
+    text-align:center;
+}
+#table{
+    color:#424242;
+    border-radius:10px;
+    width:1100px;
+    height:670px;
+    margin:0 auto;
+    border:8px solid #ccc;
+    margin-top:70px;
+}
+#icon{
+    margin-top:10px;
+    float:left;
+}
+#icon2,#icon3,#icon4,#icon5,#icon6{
+    clear:both;
+}
+#left{
+    margin-top:20px;
+    margin-left:50px;
+    float:left;
+    width:100px;
+    height:100px;
+    background-image: url('../img/htmlcss.png');
+    background-size:100%;
+}
+#right{
+    width:100px;
+    height:100px;
+    float:left;
+    background-image: url('../img/css.png');
+    background-size:100%;
+}
+#right2{
+    margin-top:60px;
+    width:100px;
+    height:60px;
+    float:left;
+    background-image: url('../img/jquery.png');
+    background-size:100%;
+}
+#left2{
+    float:left;
+    margin-top:40px;
+    margin-left:50px;
+    width:100px;
+    height:100px;
+    background-image: url('../img/자바2.png');
+    background-size:100%;
+}
+#left3{
+    float:left;
+    margin-top:50px;
+    margin-left:50px;
+    width:100px;
+    height:60px;
+    background-image: url('../img/오라클2.jpg');
+    background-size:100%;
+}
+#left4{
+    float:left;
+    margin-left:50px;
+    margin-top:50px;
+    width:100px;
+    height:100px;
+    background-image: url('../img/javascript.png');
+    background-size:100%;
+}
+#left5{
+    float:left;
+    margin-top:40px;
+    margin-left:50px;
+    width:100px;
+    height:50px;
+    background-image: url('../img/ajax2.png');
+    background-size:100%;
+}
+#left6{
+    float:left;
+    margin-top:40px;
+    margin-left:100px;
+    width:100px;
+    height:60px;
+    background-image: url('../img/스프링프레임.png');
+    background-size:100%;
+}
+#description{
+    font-weight:bold;
+    margin-top:30px;
+    width:850px;
+    float:left;
+    margin-left:70px;   
+}
+#description6{
+    font-weight:bold;
+    margin-top:50px;
+    margin-left:10px;
+    width:850px;
+    float:left;
+    margin-left:20px;
+}
+#description4{
+    font-weight:bold;
+    margin-top:50px;
+    margin-left:10px;
+    width:850px;
+    float:left;
+    margin-left:70px;
+
+}
+#titlesolo{
+    text-align:center;
+    position:relative;
+    color:#D0A9F5;
+    font-size:25px;
+    top:140px;
+}
+#titleteam{
+    text-align:center;
+    position:relative;
+    color:#8258FA;
+    font-size:25px;
+    top:70px;
+}
+.solo, .team{
+    position: relative;
+    right:490px;
+}
+#description2,#description3,#description5{
+    font-weight:bold;
+    margin-top:50px;
+    width:850px;
+    float:left;
+    margin-left:70px;
+}
+.project{
+    margin-top:20px;
+    color:#FAAC58;
+}
+#wrap{
+    margin:0 auto;
+    width:1100px;
+    height:410px;
+    margin-top:150px;
+}
+#wrap2{
+    margin:0 auto;
+    width:1100px;
+    height:410px;
+    margin-top:80px;
+}
+#image1{
+    border-radius: 10px;
+    width:500px;
+    height:400px;
+    float:left;
+}
+
+#descrip{
+    background-color:white;
+    width:600px;
+    height:400px;
+    float:left;
+}
+#titlenum{
+    float:left;
+    
+}
+#num{
+    position:relative;
+    top:30px;
+    font-size:40px;
+    color:#424242;
+    margin-left:40px;
+}
+#projectname{
+    font-size:25px;
+    position:relative;
+    top:30px;
+    color:#B09869;
+}
+#info{
+    border-radius:5px;
+    width:270px;
+    background-color:rosybrown;
+    color:white;
+    position:relative;
+    margin-left:40px;
+    top:40px;
+    clear:both;
+}
+#info1{
+    margin-left:10px;
+}
+#info2{
+    position: relative;
+    top:60px;
+    font-size:20px;
+    width:450px;
+    margin-left:40px;
+    clear:both;
+}
+#date{
+    clear:both;
+    color:#848484;
+    margin-left:40px;
+    position: relative;
+    top:50px;
+}
+#projectbottom{
+    clear:both;
+    position: relative;
+    top:77px;
+    margin-left:40px;
+}
+#demo{
+    font-size:25px;
+    padding:8px;
+    color:#2EFEF7;
+    border:1px solid #2EFEF7;
+}
+#repos,#pdf{
+    margin-left:20px;
+    font-size:25px;
+    padding:8px;
+    color:#2EFEF7;
+    border:1px solid #2EFEF7;
+}
+
+.CONTACT{
+    color:#B404AE;
+    font-size:40px;
+}
+#email{
+    margin:0 auto;
+    width:600px;
+    text-align:center;
+    margin-top:80px;
+    font-size:25px;
+    font-weight:bold;
+}
+#gmail{
+    margin-top:20px;
+    height:100px;
+}
+#bd{
+    color:#FE2E64;
+}
+#emailspan{
+    position: relative;
+    top:20px;
+}
+#phone{
+    margin:0 auto;
+    width:600px;
+    text-align:center;
+    margin-top:20px;
+    font-size:25px;
+    font-weight:bold;
+   
+}
+
+#skillspan{
+    color:#FA5882;
+}
