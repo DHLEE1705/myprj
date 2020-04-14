@@ -4,5 +4,19 @@
 ## 개발환경
 - OS
     - windows
-- DB 
+
+- Back-End
+    - JDK 1.8
+    - Java 8
+    - Tomcat Server 9
+    - Springframework
+    - Mybatis
     - Oracle
+    - Open API
+    - Restful API
+    
+- Front End
+    -Ajax
+    -javascript
+    -html
+    -css
