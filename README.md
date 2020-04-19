@@ -31,6 +31,6 @@
 - - -
 ![K-001](https://user-images.githubusercontent.com/59239079/79680269-dc176b80-8248-11ea-906c-c75f68ec72cb.png)
 - - -
-
+![K-002](https://user-images.githubusercontent.com/59239079/79680278-f4878600-8248-11ea-99a7-9c2811f63624.png)
 ## Demo
-- [실행 영상](https://www.youtube.com/watch?v=BUMVqDi9BEk)
+- [실행 영상](https://www.youtube.com/watch?v=Yeg3ZLMback&t=1s)
