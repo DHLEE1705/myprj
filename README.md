@@ -29,10 +29,8 @@
 - - -
 ![K-014](https://user-images.githubusercontent.com/59239079/79540733-98dfc000-80c3-11ea-8924-555e276681dd.png)
 - - -
-![K-015](https://user-images.githubusercontent.com/59239079/79540757-a1d09180-80c3-11ea-9974-0974f4f38bf8.png)
+![K-001](https://user-images.githubusercontent.com/59239079/79680269-dc176b80-8248-11ea-906c-c75f68ec72cb.png)
 - - -
-![K-016](https://user-images.githubusercontent.com/59239079/79540776-aac16300-80c3-11ea-9aa7-80b383f66516.png)
-
 
 ## Demo
 - [실행 영상](https://www.youtube.com/watch?v=BUMVqDi9BEk)
